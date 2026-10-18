@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arambagh Yatri Sahayata | Free Travel & Cab Directory | আরামবাগ যাত্রী সহায়তা</title>
+<!-- Optional Google AdSense Code: Paste here when ready -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<style>
+  :root {
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+    --accent: #d97706;
+    --emergency: #dc2626;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --radius: 10px;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", Arial, sans-serif; }
+  body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* Header */
+  header {
+    background: #0f766e;
+    color: white;
+    padding: 0.85rem 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .logo-block { display: flex; align-items: center; gap: 10px; }
+  .logo-icon {
+    background: #f59e0b;
+    color: #1e293b;
+    font-size: 1.35rem;
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+  }
+  .logo-text h1 { font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+  .logo-text p { font-size: 0.72rem; color: #99f6e4; }
+  
+  .header-actions { display: flex; align-items: center; gap: 10px; }
+  .lang-btn {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .free-badge {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  /* Optional Top Banner Ad Space */
+  .ad-slot-container {
+    max-width: 1200px;
+    margin: 0.85rem auto 0;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .ad-banner-top {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ad-tag {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .ad-sponsor-info h4 { font-size: 0.9rem; color: #0f766e; }
+  .ad-sponsor-info p { font-size: 0.78rem; color: #64748b; }
+  .ad-sponsor-cta {
+    background: #0f766e;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(180deg, #0f766e 0%, #115e59 75%, #f8fafc 100%);
+    color: white;
+    padding: 2.25rem 1.25rem 3.25rem;
+    text-align: center;
+  }
+  .hero-content { max-width: 840px; margin: 0 auto; }
+  .pill-free {
+    background: rgba(245, 158, 11, 0.25);
+    border: 1px solid #f59e0b;
+    color: #fef3c7;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .hero h2 { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.75rem; line-height: 1.3; }
+  .hero p { font-size: 0.95rem; color: #ccfbf1; margin-bottom: 1.5rem; }
+  .hero-cta-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  
+  .btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-emergency { background: #dc2626; color: white; }
+  .btn-emergency:hover { background: #b91c1c; }
+  .btn-primary { background: #f59e0b; color: #1e293b; }
+  .btn-primary:hover { background: #d97706; }
+  .btn-secondary { background: white; color: #0f766e; }
+
+  /* Main Wrapper */
+  .main-wrapper { max-width: 1200px; margin: -2rem auto 2.5rem; padding: 0 1rem; }
+
+  /* Needy Person & Patient Banner */
+  .needy-card {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 5px solid #d97706;
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .needy-text h3 { font-size: 1.15rem; color: #92400e; margin-bottom: 4px; }
+  .needy-text p { font-size: 0.85rem; color: #78350f; }
+
+  /* Section Title */
+  .section-header {
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .section-title h3 { font-size: 1.35rem; color: #0f172a; font-weight: 700; }
+  .section-title p { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* Filter */
+  .filter-bar {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .filter-input {
+    flex: 1 1 220px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+  .filter-select {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    background: white;
+  }
+
+  /* Agencies Grid */
+  .agencies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .agency-card {
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .agency-card:hover { transform: translateY(-2px); }
+  
+  /* Partner Agency Tag (Only if they voluntarily partnered) */
+  .agency-card.is-partner {
+    border: 2px solid #0f766e;
+    background: #f0fdfa;
+  }
+  .partner-ribbon {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: #0f766e;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .agency-name { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+  .agency-loc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
+  .agency-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
+  .tag { font-size: 0.72rem; background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px; }
+  .tag.emergency { background: #fee2e2; color: #dc2626; font-weight: 600; }
+  .agency-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn-call {
+    background: #0f766e;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .btn-call:hover { background: #115e59; }
+
+  /* Fare Calculator */
+  .calc-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2.5rem;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
+  .form-control { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; }
+  .calc-res {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .calc-amount { font-size: 1.5rem; font-weight: 800; color: #0f766e; }
+
+  /* Voluntary Partner Strip */
+  .partner-callout {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .partner-callout p { font-size: 0.85rem; color: #475569; }
+
+  /* Footer */
+  footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 2.5rem 1rem 1.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 0.75rem; }
+  .footer-links a { color: #cbd5e1; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-container">
+    <div class="logo-block">
+      <div class="logo-icon">আ</div>
+      <div class="logo-text">
+        <h1 id="brand-title">Arambagh Yatri Sahayata</h1>
+        <p id="brand-sub">Free Community Travel & Cab Directory | আরামবাগ মহকুমা</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="free-badge">100% Free Information</span>
+      <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn">বাংলায় দেখুন</button>
+    </div>
+  </div>
+</header>
+
+<!-- OPTIONAL AD SPACE (Supports Google AdSense or Local Diagnostic Lab Banner) -->
+<div class="ad-slot-container">
+  <div class="ad-banner-top">
+    <div class="ad-sponsor-info">
+      <span class="ad-tag">Community Notice / স্থানীয় তথ্য</span>
+      <h4>🏥 Emergency Medical Trip to Kolkata?</h4>
+      <p>Arambagh Subdivisional Hospital to SSKM / Kolkata Medical College: Standard fair rate is ₹2,200–₹2,500. Check the rate card below before booking.</p>
+    </div>
+    <a href="#calculator" class="ad-sponsor-cta">Check Fair Rate</a>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="pill-free">🌱 100% Free Public Platform — Zero Brokerage</div>
+    <h2 id="hero-headline">All Arambagh Travel Agencies & Cabs on One Free Platform</h2>
+    <p id="hero-desc">An open directory for passengers and families in need. Find direct phone numbers for local car rentals, emergency Kolkata hospital runs, and pilgrimage tours without middlemen.</p>
+    <div class="hero-cta-group">
+      <a href="#directory" class="btn btn-primary">📞 View Agency Phone Numbers</a>
+      <a href="#calculator" class="btn btn-secondary">📊 Check Standard Fair Rates</a>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<main class="main-wrapper">
+
+  <!-- Needy Person Guidance Banner -->
+  <div class="needy-card">
+    <div class="needy-text">
+      <h3>🚑 For Patients & Needy Travelers (জরুরি চিকিৎসা সহায়তা)</h3>
+      <p>If you or a patient needs urgent transport to Kolkata (SSKM, Medical College, NRS, Chittaranjan Cancer Centre) or Bardhaman, call the operators below directly. Compare with our standard rate card so no one overcharges you during emergencies.</p>
+    </div>
+    <a href="#calculator" class="btn btn-emergency">View Fair Fare Card</a>
+  </div>
+
+  <!-- Directory Section -->
+  <section id="directory">
+    <div class="section-header">
+      <div class="section-title">
+        <h3 id="sec-title">Local Tour & Travel Agencies in Arambagh</h3>
+        <p id="sec-sub">Free public listings with direct telephone numbers. All local operators listed at no charge.</p>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="filter-bar">
+      <input type="text" id="agencySearch" class="filter-input" placeholder="Search by agency name or location..." onkeyup="filterAgencies()">
+      <select id="serviceFilter" class="filter-select" onchange="filterAgencies()">
+        <option value="all">All Service Categories</option>
+        <option value="cab">Outstation & Local Cabs</option>
+        <option value="medical">Medical & Patient Transit</option>
+        <option value="pilgrim">Kamarpukur-Jayrambati Tours</option>
+      </select>
+    </div>
+
+    <!-- Agency Cards Grid (Open & Free Listings) -->
+    <div class="agencies-grid" id="agenciesGrid">
+
+      <!-- Agency 1 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">Radhakrishna Travels</div>
+          <div class="agency-loc">📍 Ward No. 13, Nischintapur Road, Arambagh</div>
+          <div class="agency-tags">
+            <span class="tag">Outstation Cabs</span>
+            <span class="tag">Dzire & Bolero</span>
+            <span class="tag">Airport / Howrah</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919832145012" class="btn-call">📞 Call: 9832145012</a>
+        </div>
+      </div>
+
+      <!-- Agency 2 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">Annapurna Bhraman Agency</div>
+          <div class="agency-loc">📍 Near Police Station, Arambagh Court</div>
+          <div class="agency-tags">
+            <span class="tag emergency">🚑 Hospital Shuttles</span>
+            <span class="tag">Kamarpukur Tours</span>
+            <span class="tag">Bolero</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919434288123" class="btn-call">📞 Call: 9434288123</a>
+        </div>
+      </div>
+
+      <!-- Agency 3 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">Maa Chamunda Travels</div>
+          <div class="agency-loc">📍 Link Road, Near Central Bus Stand, Arambagh</div>
+          <div class="agency-tags">
+            <span class="tag">Maxi Cabs</span>
+            <span class="tag">Jayrambati Group Tours</span>
+            <span class="tag">Bus Ticketing</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919733511984" class="btn-call">📞 Call: 9733511984</a>
+        </div>
+      </div>
+
+      <!-- Agency 4 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">Spectrum Tour-Travels</div>
+          <div class="agency-loc">📍 PC Sen More, Arambagh</div>
+          <div class="agency-tags">
+            <span class="tag">Digha-Puri Packages</span>
+            <span class="tag">Train Ticketing</span>
+            <span class="tag">Family Tours</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919832877652" class="btn-call">📞 Call: 9832877652</a>
+        </div>
+      </div>
+
+      <!-- Agency 5 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">Taraknath Travels (Arambagh Wing)</div>
+          <div class="agency-loc">📍 Station Road, Arambagh</div>
+          <div class="agency-tags">
+            <span class="tag emergency">🚑 24x7 Ambulance & Cabs</span>
+            <span class="tag">Kolkata Transfer</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919434833419" class="btn-call">📞 Call: 9434833419</a>
+        </div>
+      </div>
+
+      <!-- Agency 6 -->
+      <div class="agency-card">
+        <div>
+          <div class="agency-name">AARAB Tour & Travels</div>
+          <div class="agency-loc">📍 Hospital More, Arambagh</div>
+          <div class="agency-tags">
+            <span class="tag emergency">🚑 Hospital Pickup</span>
+            <span class="tag">Bardhaman Route</span>
+            <span class="tag">Maxi Cab</span>
+          </div>
+        </div>
+        <div class="agency-footer">
+          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <a href="tel:+919732100482" class="btn-call">📞 Call: 9732100482</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Voluntary Partnership Info Strip -->
+  <div class="partner-callout">
+    <div>
+      <h4 style="font-size:0.95rem; color:#0f766e; margin-bottom:2px;">Are you a travel company or cab owner in Arambagh?</h4>
+      <p>All listings on this platform are <strong>100% free</strong>. We never charge companies to be listed. If an agency voluntarily wants to partner with us for dedicated patient standby or priority tagging, contact us on WhatsApp.</p>
+    </div>
+    <a href="https://wa.me/919832000000?text=Hello,%20I%20am%20a%20travel%20operator%20in%20Arambagh%20and%20would%20like%20to%20voluntarily%20partner%20with%20Yatri%20Sahayata." class="btn btn-secondary" style="border:1px solid #0f766e;">Voluntary Partner Inquiry</a>
+  </div>
+
+  <!-- Standard Fare Calculator Section -->
+  <section id="calculator" class="calc-box">
+    <div class="section-header">
+      <div class="section-title">
+        <h3>Fair Rate Benchmark (স্বচ্ছ ন্যায্য ভাড়ার তালিকা)</h3>
+        <p>Market benchmark rates to protect passengers and patients from price-gouging.</p>
+      </div>
+    </div>
+    <div class="calc-grid">
+      <div class="form-group">
+        <label>Pickup Location</label>
+        <select id="originSel" class="form-control" onchange="calcFare()">
+          <option value="bus_stand">Arambagh Central Bus Stand</option>
+          <option value="hospital_more">Hospital More / Subdivisional Hospital</option>
+          <option value="kamarpukur">Kamarpukur (~14 km)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Destination</label>
+        <select id="destSel" class="form-control" onchange="calcFare()">
+          <option value="kolkata">Kolkata Medical Hub (SSKM / Medical College / NRS) (~82 km)</option>
+          <option value="howrah">Howrah Rly Station / Airport (~78 km)</option>
+          <option value="tarakeswar">Tarakeswar Station (~28 km)</option>
+          <option value="bardhaman">Bardhaman Medical College (~45 km)</option>
+          <option value="kamarpukur_tour">Kamarpukur–Jayrambati Day Tour (~50 km)</option>
+          <option value="digha">Digha Sea Beach (~175 km)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Vehicle Type</label>
+        <select id="vehSel" class="form-control" onchange="calcFare()">
+          <option value="hatchback">Hatchback (Alto / WagonR - 4 Seater)</option>
+          <option value="sedan">Sedan (Dzire / Etios - AC 4 Seater)</option>
+          <option value="suv">SUV (Bolero / Ertiga - 7 Seater)</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc-res">
+      <div>
+        <div style="font-size:0.8rem; color:#64748b;">Fair Market Benchmark (Includes Fuel, Driver & Tolls):</div>
+        <div class="calc-amount" id="fareDisplay">₹ 2,400</div>
+      </div>
+      <a href="#directory" class="btn btn-primary">Find an Agent on this Route</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="#directory">Directory</a>
+    <a href="#calculator">Fair Rate Card</a>
+    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
+    <a href="https://wa.me/919832000000">Contact Admin</a>
+  </div>
+  <p>© 2026 Arambagh Yatri Sahayata Manch. A 100% Free Public Information Platform for Arambagh Sub-division, Hooghly.</p>
+
+<!-- Privacy Policy & AdSense Disclaimer Modal -->
+<div class="modal-overlay" id="privacyModal">
+  <div class="modal-box" style="max-height:80vh; overflow-y:auto;">
+    <button class="modal-close" onclick="closePrivacyModal()">✕</button>
+    <h3 style="color:#0f766e; margin-bottom:0.75rem;">Privacy Policy & Disclaimer</h3>
+    <div style="font-size:0.82rem; color:#475569; line-height:1.6;">
+      <p style="margin-bottom:0.5rem;"><strong>1. Information Collection:</strong> Arambagh Yatri Sahayata is an open public directory. We do not collect or store personal financial information. Any calls or inquiries initiated via the platform are connected directly to independent local operators in Arambagh.</p>
+      <p style="margin-bottom:0.5rem;"><strong>2. Google AdSense & Third-Party Cookies:</strong> Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings.</p>
+      <p style="margin-bottom:0.5rem;"><strong>3. Fair Pricing Disclaimer:</strong> The fare estimates provided are benchmark market guidelines calculated from fuel and highway toll averages to prevent passenger exploitation. Final fares are mutually agreed directly between travelers and drivers.</p>
+      <p><strong>4. Contact:</strong> For inquiries, directory additions, or removal requests, reach out via the contact button on this site.</p>
+    </div>
+  </div>
+</div>
+
+</footer>
+
+<script>
+  let currentLang = 'en';
+
+  function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'bn' : 'en';
+    if(currentLang === 'bn') {
+      document.getElementById('brand-title').innerText = "আরামবাগ যাত্রী সহায়তা";
+      document.getElementById('brand-sub').innerText = "বিনামূল্যে ভ্রমণ ও গাড়ি ডিরেক্টরি | আরামবাগ মহকুমা";
+      document.getElementById('lang-btn').innerText = "View in English";
+      document.getElementById('hero-headline').innerText = "আরামবাগের সমস্ত ট্রাভেল এজেন্সি ও গাড়ি সেবা এক প্ল্যাটফর্মে";
+      document.getElementById('hero-desc').innerText = "সাধারণ যাত্রী ও জরুরি রোগীদের জন্য একটি সম্পূর্ণ উন্মুক্ত ও ফ্রি ডিরেক্টরি। কোনো মধ্যস্বত্বভোগী বা দালালি ছাড়া সরাসরি এজেন্টের সাথে কথা বলুন।";
+      document.getElementById('sec-title').innerText = "আরামবাগের ট্রাভেল ও গাড়ি সেবা প্রদানকারী";
+      document.getElementById('sec-sub').innerText = "সরাসরি ফোন নম্বর সহ উন্মুক্ত তালিকা। কোনো এজেন্সির থেকে কোনো চার্জ নেওয়া হয় না।";
+    } else {
+      document.getElementById('brand-title').innerText = "Arambagh Yatri Sahayata";
+      document.getElementById('brand-sub').innerText = "Free Community Travel & Cab Directory | Arambagh Sub-division";
+      document.getElementById('lang-btn').innerText = "বাংলায় দেখুন";
+      document.getElementById('hero-headline').innerText = "All Arambagh Travel Agencies & Cabs on One Free Platform";
+      document.getElementById('hero-desc').innerText = "An open directory for passengers and families in need. Find direct phone numbers for local car rentals, emergency Kolkata hospital runs, and pilgrimage tours without middlemen.";
+      document.getElementById('sec-title').innerText = "Local Tour & Travel Agencies in Arambagh";
+      document.getElementById('sec-sub').innerText = "Free public listings with direct telephone numbers. All local operators listed at no charge.";
+    }
+  }
+
+  function calcFare() {
+    const dest = document.getElementById('destSel').value;
+    const veh = document.getElementById('vehSel').value;
+    let base = 2400;
+    if (dest === 'kolkata') base = 2400;
+    else if (dest === 'howrah') base = 2300;
+    else if (dest === 'tarakeswar') base = 1000;
+    else if (dest === 'bardhaman') base = 1600;
+    else if (dest === 'kamarpukur_tour') base = 1650;
+    else if (dest === 'digha') base = 4800;
+
+    if (veh === 'hatchback') base = Math.round(base * 0.9);
+    else if (veh === 'suv') base = Math.round(base * 1.35);
+
+    document.getElementById('fareDisplay').innerText = "₹ " + base.toLocaleString('en-IN');
+  }
+
+  function filterAgencies() {
+    const q = document.getElementById('agencySearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.agency-card');
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      if(text.includes(q)) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  
+  function openPrivacyModal() { document.getElementById('privacyModal').classList.add('active'); }
+  function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('active'); }
+
+  calcFare();
+</script>
+</body>
+</html>
