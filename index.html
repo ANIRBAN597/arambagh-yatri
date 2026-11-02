@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Arambagh Yatri Sahayata: Free travel directory with Arambagh bus stand phone numbers, bus depot contacts, local cab operators, and Kolkata medical transit rates.">
+<meta name="description" content="Arambagh Yatri Sahayata: Free travel directory with Arambagh SBSTC bus depot time table, bus stand phone numbers, local cabs, and Kolkata medical transit rates.">
 <title>Arambagh Yatri Sahayata | Free Travel & Cab Directory | আরামবাগ যাত্রী সহায়তা</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6098198833993930" crossorigin="anonymous"></script>
 <style>
@@ -24,6 +24,16 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", Arial, sans-serif; }
   body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* 100% Full Page Bilingual Language Switcher Rules */
+  body.lang-bn-active .lang-en { display: none !important; }
+  body.lang-bn-active .lang-bn { display: inline !important; }
+  body.lang-bn-active .lang-bn-block { display: block !important; }
+  body.lang-bn-active .lang-bn-flex { display: flex !important; }
+
+  body:not(.lang-bn-active) .lang-bn { display: none !important; }
+  body:not(.lang-bn-active) .lang-bn-block { display: none !important; }
+  body:not(.lang-bn-active) .lang-bn-flex { display: none !important; }
 
   /* Header */
   header {
@@ -59,15 +69,17 @@
   
   .header-actions { display: flex; align-items: center; gap: 10px; }
   .lang-btn {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.4);
     color: white;
-    padding: 5px 12px;
-    border-radius: 16px;
+    padding: 6px 14px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: background 0.2s;
   }
+  .lang-btn:hover { background: rgba(255,255,255,0.35); }
   .free-badge {
     background: rgba(255,255,255,0.2);
     color: #fff;
@@ -127,7 +139,7 @@
     padding: 2.25rem 1.25rem 3.25rem;
     text-align: center;
   }
-  .hero-content { max-width: 840px; margin: 0 auto; }
+  .hero-content { max-width: 860px; margin: 0 auto; }
   .pill-free {
     background: rgba(245, 158, 11, 0.25);
     border: 1px solid #f59e0b;
@@ -163,6 +175,37 @@
 
   /* Main Wrapper */
   .main-wrapper { max-width: 1200px; margin: -2rem auto 2.5rem; padding: 0 1rem; }
+
+  /* Quick Navigation Bar */
+  .nav-bar {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar a {
+    color: #0f766e;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #ccfbf1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .nav-bar a:hover {
+    background: #0f766e;
+    color: white;
+  }
+  .nav-bar a.highlight {
+    background: #0f766e;
+    color: white;
+    border-color: #0f766e;
+  }
 
   /* Needy Person & Patient Banner */
   .needy-card {
@@ -241,22 +284,6 @@
   }
   .agency-card:hover { transform: translateY(-2px); }
   
-  /* Partner Agency Tag (Only if they voluntarily partnered) */
-  .agency-card.is-partner {
-    border: 2px solid #0f766e;
-    background: #f0fdfa;
-  }
-  .partner-ribbon {
-    position: absolute;
-    top: 10px; right: 10px;
-    background: #0f766e;
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
   .agency-name { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
   .agency-loc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
   .agency-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 1rem; }
@@ -328,17 +355,6 @@
   }
   .partner-callout p { font-size: 0.85rem; color: #475569; }
 
-  /* Footer */
-  footer {
-    background: #0f172a;
-    color: #94a3b8;
-    padding: 2.5rem 1rem 1.5rem;
-    font-size: 0.8rem;
-    text-align: center;
-  }
-  .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 0.75rem; }
-  .footer-links a { color: #cbd5e1; text-decoration: none; }
-
   /* Editorial Content Sections for High-Value Publisher Content */
   .guide-card {
     background: white;
@@ -408,6 +424,45 @@
     font-size: 0.88rem;
     color: #134e4a;
   }
+  .bus-time-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 2px;
+    font-size: 0.78rem;
+  }
+  .sbstc-header-strip {
+    background: linear-gradient(90deg, #0f766e, #134e4a);
+    color: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .sbstc-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .sbstc-btn-filter {
+    background: #f1f5f9;
+    border: 1px solid var(--border);
+    color: #334155;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .sbstc-btn-filter.active, .sbstc-btn-filter:hover {
+    background: #0f766e;
+    color: white;
+    border-color: #0f766e;
+  }
+
   .faq-item {
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
@@ -426,30 +481,36 @@
     color: #475569;
     line-height: 1.6;
   }
-  .nav-bar {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 10px 0;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-bar a {
-    color: #0f766e;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 5px 12px;
-    border-radius: 6px;
-    background: #f0fdfa;
-    border: 1px solid #ccfbf1;
-  }
-  .nav-bar a:hover {
-    background: #0f766e;
-    color: white;
-  }
 
+  /* Footer */
+  footer {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 2.5rem 1rem 1.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .footer-links a { color: #cbd5e1; text-decoration: none; }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none; align-items: center; justify-content: center;
+    z-index: 1000; padding: 1rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: white; border-radius: var(--radius);
+    padding: 1.75rem; max-width: 600px; width: 100%;
+    position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .modal-close {
+    position: absolute; top: 12px; right: 14px;
+    background: none; border: none; font-size: 1.25rem;
+    cursor: pointer; color: #64748b;
+  }
 </style>
 </head>
 <body>
@@ -460,60 +521,368 @@
     <div class="logo-block">
       <div class="logo-icon">আ</div>
       <div class="logo-text">
-        <h1 id="brand-title">Arambagh Yatri Sahayata</h1>
-        <p id="brand-sub">Free Community Travel & Cab Directory | আরামবাগ মহকুমা</p>
+        <h1>
+          <span class="lang-en">Arambagh Yatri Sahayata</span>
+          <span class="lang-bn">আরামবাগ যাত্রী সহায়তা</span>
+        </h1>
+        <p>
+          <span class="lang-en">Free Community Travel & Cab Directory | Arambagh Sub-division</span>
+          <span class="lang-bn">বিনামূল্যে ভ্রমণ ও গাড়ি ডিরেক্টরি | আরামবাগ মহকুমা</span>
+        </p>
       </div>
     </div>
     <div class="header-actions">
-      <span class="free-badge">100% Free Information</span>
+      <span class="free-badge">
+        <span class="lang-en">100% Free Information</span>
+        <span class="lang-bn">১০০% বিনামূল্যে তথ্য সেবা</span>
+      </span>
       <button class="lang-btn" onclick="toggleLanguage()" id="lang-btn">বাংলায় দেখুন</button>
     </div>
   </div>
 </header>
 
-<!-- OPTIONAL AD SPACE (Supports Google AdSense or Local Diagnostic Lab Banner) -->
+<!-- OPTIONAL AD SPACE -->
 <div class="ad-slot-container">
   <div class="ad-banner-top">
     <div class="ad-sponsor-info">
-      <span class="ad-tag">Community Notice / স্থানীয় তথ্য</span>
-      <h4>🏥 Emergency Medical Trip to Kolkata?</h4>
-      <p>Arambagh Subdivisional Hospital to SSKM / Kolkata Medical College: Standard fair rate is ₹2,200–₹2,500. Check the rate card below before booking.</p>
+      <span class="ad-tag">
+        <span class="lang-en">Community Notice</span>
+        <span class="lang-bn">জরুরি তথ্য বিজ্ঞপ্তি</span>
+      </span>
+      <h4>
+        <span class="lang-en">🏥 Emergency Medical Trip to Kolkata?</span>
+        <span class="lang-bn">🏥 জরুরি চিকিৎসার জন্য কলকাতা যাচ্ছেন?</span>
+      </h4>
+      <p>
+        <span class="lang-en">Arambagh Subdivisional Hospital to SSKM / Kolkata Medical College: Standard fair rate is ₹2,200–₹2,500. Check the rate card below before booking.</span>
+        <span class="lang-bn">আরামবাগ মহকুমা হাসপাতাল থেকে এসএসকেএম / কলকাতা মেডিকেল কলেজ: ন্যায্য ভাড়ার সীমা ₹২,২০০–₹২,৫০০। যেকোনো গাড়ি ডাকার আগে নিচের ভাড়ার তালিকা দেখুন।</span>
+      </p>
     </div>
-    <a href="#calculator" class="ad-sponsor-cta">Check Fair Rate</a>
+    <a href="#calculator" class="ad-sponsor-cta">
+      <span class="lang-en">Check Fair Rate</span>
+      <span class="lang-bn">ন্যায্য ভাড়া দেখুন</span>
+    </a>
   </div>
 </div>
 
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
-    <div class="pill-free">🌱 100% Free Public Platform — Zero Brokerage</div>
-    <h2 id="hero-headline">All Arambagh Travel Agencies & Cabs on One Free Platform</h2>
-    <p id="hero-desc">An open directory for passengers and families in need. Find direct phone numbers for local car rentals, emergency Kolkata hospital runs, and pilgrimage tours without middlemen.</p>
+    <div class="pill-free">
+      <span class="lang-en">🌱 100% Free Public Platform — Zero Brokerage</span>
+      <span class="lang-bn">🌱 ১০০% জনকল্যাণমূলক উন্মুক্ত পোর্টাল — কোনো দালালি নেই</span>
+    </div>
+    <h2>
+      <span class="lang-en">All Arambagh Travel Agencies, Cabs & SBSTC Bus Schedules on One Platform</span>
+      <span class="lang-bn">আরামবাগের সমস্ত ট্রাভেল এজেন্সি, গাড়ি সেবা ও এসবিএসটিসি বাস সময়সূচী এক ছাদের নিচে</span>
+    </h2>
+    <p>
+      <span class="lang-en">An open directory for passengers and families in need. Find direct phone numbers for local car rentals, SBSTC bus depot timings, emergency Kolkata hospital runs, and pilgrimage tours without middlemen.</span>
+      <span class="lang-bn">সাধারণ যাত্রী ও বিপদে পড়া পরিবারের জন্য একটি উন্মুক্ত ডিরেক্টরি। কোনো মধ্যস্বত্বভোগী ছাড়াই সরাসরি স্থানীয় গাড়ি ভাড়া, এসবিএসটিসি বাসের সময়সূচী, কলকাতা মেডিকেল ইমার্জেন্সি রান ও তীর্থ ভ্রমণের তথ্য পান।</span>
+    </p>
     <div class="hero-cta-group">
-      <a href="#directory" class="btn btn-primary">📞 View Agency Phone Numbers</a>
-      <a href="#calculator" class="btn btn-secondary">📊 Check Standard Fair Rates</a>
+      <a href="#sbstc-timetable" class="btn btn-primary">
+        <span class="lang-en">🚌 SBSTC Bus Time Table</span>
+        <span class="lang-bn">🚌 এসবিএসটিসি বাস সময়সূচী</span>
+      </a>
+      <a href="#directory" class="btn btn-secondary">
+        <span class="lang-en">📞 View Agency Phone Numbers</span>
+        <span class="lang-bn">📞 ট্রাভেল এজেন্সির নম্বর</span>
+      </a>
+      <a href="#calculator" class="btn btn-secondary">
+        <span class="lang-en">📊 Fair Rate Benchmark</span>
+        <span class="lang-bn">📊 ন্যায্য ভাড়ার তালিকা</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Main Content -->
+<!-- Main Wrapper -->
 <main class="main-wrapper">
+
+  <!-- Quick Navigation Bar -->
+  <nav class="nav-bar">
+    <a href="#sbstc-timetable" class="highlight">
+      <span class="lang-en">🚌 SBSTC Bus Time Table</span>
+      <span class="lang-bn">🚌 এসবিএসটিসি সময়সূচী</span>
+    </a>
+    <a href="#directory">
+      <span class="lang-en">📞 Cab Directory</span>
+      <span class="lang-bn">📞 গাড়ি ডিরেক্টরি</span>
+    </a>
+    <a href="#calculator">
+      <span class="lang-en">📊 Rate Benchmark</span>
+      <span class="lang-bn">📊 ভাড়ার হিসাব</span>
+    </a>
+    <a href="#medical-guide">
+      <span class="lang-en">🚑 Medical Transit Guide</span>
+      <span class="lang-bn">🚑 চিকিৎসা পরিবহন</span>
+    </a>
+    <a href="#pilgrimage-guide">
+      <span class="lang-en">🛕 Kamarpukur & Jayrambati</span>
+      <span class="lang-bn">🛕 কামারপুকুর-জয়রামবাটী</span>
+    </a>
+    <a href="#transport-guide">
+      <span class="lang-en">🚆 Train & Bus Schedules</span>
+      <span class="lang-bn">🚆 ট্রেন ও বাস গাইড</span>
+    </a>
+    <a href="#about-manch">
+      <span class="lang-en">🏛️ About Us</span>
+      <span class="lang-bn">🏛️ আমাদের পরিচয়</span>
+    </a>
+    <a href="#faq-section">
+      <span class="lang-en">❓ Common FAQs</span>
+      <span class="lang-bn">❓ প্রশ্নোত্তর</span>
+    </a>
+  </nav>
 
   <!-- Needy Person Guidance Banner -->
   <div class="needy-card">
     <div class="needy-text">
-      <h3>🚑 For Patients & Needy Travelers (জরুরি চিকিৎসা সহায়তা)</h3>
-      <p>If you or a patient needs urgent transport to Kolkata (SSKM, Medical College, NRS, Chittaranjan Cancer Centre) or Bardhaman, call the operators below directly. Compare with our standard rate card so no one overcharges you during emergencies.</p>
+      <h3>
+        <span class="lang-en">🚑 For Patients & Needy Travelers</span>
+        <span class="lang-bn">🚑 রোগী ও জরুরি যাত্রীদের জন্য বিশেষ তথ্য</span>
+      </h3>
+      <p>
+        <span class="lang-en">If you or a patient needs urgent transport to Kolkata (SSKM, Medical College, NRS, Chittaranjan Cancer Centre) or Bardhaman, call the operators below directly. Compare with our standard rate card so no one overcharges you during emergencies.</span>
+        <span class="lang-bn">কলকাতায় (SSKM, মেডিকেল কলেজ, NRS, চিত্তরঞ্জন ক্যান্সার হাসপাতাল) বা বর্ধমান মেডিকেলে জরুরি রোগী স্থানান্তরের জন্য সরাসরি নিচের তালিকাভুক্ত এজেন্সিকে ফোন করুন। বিপদের সময় অতিরিক্ত ভাড়া দেওয়া থেকে বাঁচতে আমাদের ভাড়ার চার্ট মিলিয়ে নিন।</span>
+      </p>
     </div>
-    <a href="#calculator" class="btn btn-emergency">View Fair Fare Card</a>
+    <a href="#calculator" class="btn btn-emergency">
+      <span class="lang-en">View Fair Fare Card</span>
+      <span class="lang-bn">ভাড়ার চার্ট দেখুন</span>
+    </a>
   </div>
+
+  <!-- BRAND NEW SECTION: ARAMBAGH SBSTC BUS DEPOT TIME TABLE -->
+  <section id="sbstc-timetable" class="guide-card" style="border-top: 4px solid #0f766e;">
+    <div class="sbstc-header-strip">
+      <h3 style="color:white; margin-bottom:4px;">
+        <span class="lang-en">🚌 Arambagh SBSTC Bus Depot: Official Time Table & Route Schedule</span>
+        <span class="lang-bn">🚌 আরামবাগ এসবিএসটিসি বাস ডিপো: সরকারি সময়সূচী ও রুট চার্ট</span>
+      </h3>
+      <p style="color:#ccfbf1; font-size:0.85rem; margin-bottom:0;">
+        <span class="lang-en">Daily departures from Arambagh Central Bus Terminus (Bandar Road) operated by South Bengal State Transport Corporation (SBSTC).</span>
+        <span class="lang-bn">দক্ষিণবঙ্গ রাষ্ট্রীয় পরিবহণ সংস্থা (SBSTC) দ্বারা পরিচালিত আরামবাগ সেন্ট্রাল বাস টার্মিনাস (বন্দর রোড) থেকে নিয়মিত বাস চলাচলের সম্পূর্ণ তালিকা।</span>
+      </p>
+    </div>
+
+    <!-- Filter Buttons for SBSTC Routes -->
+    <div class="sbstc-filter-group">
+      <button class="sbstc-btn-filter active" onclick="filterSbstc('all', this)">
+        <span class="lang-en">All Routes</span>
+        <span class="lang-bn">সমস্ত রুট</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('kolkata', this)">
+        <span class="lang-en">Kolkata (Esplanade/Karunamoyee)</span>
+        <span class="lang-bn">কলকাতা (ধর্মতলা/করুণাময়ী)</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('digha', this)">
+        <span class="lang-en">Digha Sea Beach</span>
+        <span class="lang-bn">দিঘা সমুদ্র সৈকত</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('durgapur', this)">
+        <span class="lang-en">Durgapur & Asansol</span>
+        <span class="lang-bn">দুর্গাপুর ও আসানসোল</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('burdwan', this)">
+        <span class="lang-en">Burdwan (Bardhaman)</span>
+        <span class="lang-bn">বর্ধমান</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('bankura', this)">
+        <span class="lang-en">Bankura / Bishnupur</span>
+        <span class="lang-bn">বাঁকুড়া / বিষ্ণুপুর</span>
+      </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('medinipur', this)">
+        <span class="lang-en">Medinipur / Ghatal</span>
+        <span class="lang-bn">মেদিনীপুর / ঘাটাল</span>
+      </button>
+    </div>
+
+    <!-- SBSTC Timetable Table -->
+    <div style="overflow-x: auto;">
+      <table class="route-table" id="sbstcTable">
+        <thead>
+          <tr>
+            <th>
+              <span class="lang-en">Destination & Route</span>
+              <span class="lang-bn">গন্তব্য ও রুট</span>
+            </th>
+            <th>
+              <span class="lang-en">Dep. from Arambagh</span>
+              <span class="lang-bn">আরামবাগ থেকে ছাড়ার সময়</span>
+            </th>
+            <th>
+              <span class="lang-en">Major Via Stoppages</span>
+              <span class="lang-bn">ভায়া / প্রধান স্টপেজ</span>
+            </th>
+            <th>
+              <span class="lang-en">Service Type</span>
+              <span class="lang-bn">বাসের ধরন</span>
+            </th>
+            <th>
+              <span class="lang-en">Approx. Fare</span>
+              <span class="lang-bn">ভাড়া</span>
+            </th>
+            <th>
+              <span class="lang-en">Return from Dest.</span>
+              <span class="lang-bn">ফেরার সময়</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Kolkata Routes -->
+          <tr data-cat="kolkata">
+            <td><strong>Kolkata (Esplanade / Babughat)</strong><br><small style="color:#0f766e;">Fastest Highway Corridor</small></td>
+            <td>
+              <span class="bus-time-badge">05:40 AM</span>
+              <span class="bus-time-badge">06:15 AM</span>
+              <span class="bus-time-badge">07:00 AM</span>
+              <span class="bus-time-badge">08:00 AM</span>
+              <span class="bus-time-badge">10:15 AM</span>
+              <span class="bus-time-badge">11:30 AM</span>
+              <span class="bus-time-badge">01:00 PM</span>
+              <span class="bus-time-badge">02:15 PM</span>
+              <span class="bus-time-badge">03:30 PM</span>
+              <span class="bus-time-badge">04:30 PM</span>
+            </td>
+            <td>Pursurah → Champadanga → Dankuni Toll → Nibra → Kona Exp → 2nd Hooghly Bridge</td>
+            <td><span class="highlight-badge">SBSTC Non-AC Express</span></td>
+            <td><strong>₹85 – ₹95</strong></td>
+            <td>07:30, 08:30, 10:00, 11:30, 12:30, 14:00, 15:30, 17:00, 18:30, 20:00, 21:30 (Esplanade)</td>
+          </tr>
+          <tr data-cat="kolkata">
+            <td><strong>Salt Lake (Karunamoyee Hub)</strong><br><small style="color:#0f766e;">IT & Hospital Link</small></td>
+            <td>
+              <span class="bus-time-badge">09:00 AM</span>
+              <span class="bus-time-badge">01:30 PM</span>
+            </td>
+            <td>Champadanga → Dankuni → Belghoria Expressway → Ultadanga → Karunamoyee</td>
+            <td><span class="highlight-badge">Express Seater</span></td>
+            <td><strong>₹95</strong></td>
+            <td>12:30 PM, 05:45 PM (Karunamoyee Terminus)</td>
+          </tr>
+
+          <!-- Digha Routes -->
+          <tr data-cat="digha">
+            <td><strong>Digha Sea Beach (দিঘা)</strong><br><small style="color:#0f766e;">Direct Beach Express</small></td>
+            <td>
+              <span class="bus-time-badge">06:30 AM</span>
+              <span class="bus-time-badge">08:00 AM</span>
+            </td>
+            <td>Ghatal → Panskura → Nandakumar → Bajkul → Kanthi (Contai) → Digha Old & New</td>
+            <td><span class="highlight-badge">Long Distance Express</span></td>
+            <td><strong>₹175 – ₹210</strong></td>
+            <td>01:00 PM, 03:00 PM (Digha Bus Stand)</td>
+          </tr>
+
+          <!-- Durgapur & Asansol Routes -->
+          <tr data-cat="durgapur">
+            <td><strong>Durgapur (City Centre / Station)</strong><br><small style="color:#0f766e;">Industrial Corridor</small></td>
+            <td>
+              <span class="bus-time-badge">06:45 AM</span>
+              <span class="bus-time-badge">09:15 AM</span>
+              <span class="bus-time-badge">12:45 PM</span>
+              <span class="bus-time-badge">03:00 PM</span>
+            </td>
+            <td>Uchalan → Burdwan (Alisha/Nababhat) → Galsi → Panagarh Bazaar → Durgapur City Centre</td>
+            <td><span class="highlight-badge">SBSTC Inter-District</span></td>
+            <td><strong>₹115 – ₹135</strong></td>
+            <td>07:30 AM, 11:30 AM, 02:00 PM, 05:30 PM</td>
+          </tr>
+          <tr data-cat="durgapur">
+            <td><strong>Asansol (সিটি বাস টার্মিনাস)</strong></td>
+            <td>
+              <span class="bus-time-badge">07:15 AM</span>
+              <span class="bus-time-badge">11:00 AM</span>
+            </td>
+            <td>Arambagh → Burdwan → Durgapur → Raniganj → Asansol Bus Stand</td>
+            <td><span class="highlight-badge">Express Service</span></td>
+            <td><strong>₹145 – ₹165</strong></td>
+            <td>12:45 PM, 04:30 PM (Asansol)</td>
+          </tr>
+
+          <!-- Burdwan Route -->
+          <tr data-cat="burdwan">
+            <td><strong>Burdwan (বর্ধমান কার্জন গেট / নবাবহাট)</strong></td>
+            <td>
+              <span style="font-weight:600; color:#0f766e;">Every 30–40 Mins</span><br>
+              <small>First Bus: 06:00 AM | Last Bus: 07:30 PM</small>
+            </td>
+            <td>Mayapur → Uchalan → Sehara Bazaar → Sadhanpur → Burdwan Court / Railway Stn</td>
+            <td><span class="highlight-badge">SBSTC & State Link</span></td>
+            <td><strong>₹45 – ₹55</strong></td>
+            <td>Continuous return from Burdwan Alisha & Nababhat Depot</td>
+          </tr>
+
+          <!-- Bankura & Bishnupur Route -->
+          <tr data-cat="bankura">
+            <td><strong>Bishnupur & Bankura Town (বিষ্ণুপুর / বাঁকুড়া)</strong></td>
+            <td>
+              <span class="bus-time-badge">07:00 AM</span>
+              <span class="bus-time-badge">08:30 AM</span>
+              <span class="bus-time-badge">10:30 AM</span>
+              <span class="bus-time-badge">01:30 PM</span>
+              <span class="bus-time-badge">04:00 PM</span>
+            </td>
+            <td>Goghat → Kamarpukur → Kotulpur → Joypur Forest → Bishnupur → Onda → Bankura</td>
+            <td><span class="highlight-badge">Inter-District Express</span></td>
+            <td><strong>₹75 – ₹95</strong></td>
+            <td>08:00 AM, 11:00 AM, 02:30 PM, 04:30 PM (Bankura Gobindanagar)</td>
+          </tr>
+
+          <!-- Medinipur Route -->
+          <tr data-cat="medinipur">
+            <td><strong>Medinipur & Kharagpur (মেদিনীপুর / খড়গপুর)</strong></td>
+            <td>
+              <span class="bus-time-badge">06:30 AM</span>
+              <span class="bus-time-badge">09:30 AM</span>
+              <span class="bus-time-badge">02:00 PM</span>
+            </td>
+            <td>Ghatal → Keshpur → Medinipur Keranitola → Kharagpur Golbazar</td>
+            <td><span class="highlight-badge">Express Route</span></td>
+            <td><strong>₹85 – ₹105</strong></td>
+            <td>10:00 AM, 01:30 PM, 05:00 PM (Medinipur Central Bus Stand)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Depot Enquiry Contact Box -->
+    <div class="tip-box" style="background: #fffbeb; border-color: #d97706; color: #92400e;">
+      <strong>
+        <span class="lang-en">📞 Arambagh SBSTC Depot Counter & Online Booking Info:</span>
+        <span class="lang-bn">📞 আরামবাগ এসবিএসটিসি ডিপো কাউন্টার ও অনলাইন টিকিট বুকিং:</span>
+      </strong>
+      <ul style="margin: 0.5rem 0 0 1rem; color: #78350f;">
+        <li>
+          <span class="lang-en"><strong>Depot Location:</strong> Arambagh Central Bus Terminus, Bandar Road (Near Link Road), Arambagh, Hooghly.</span>
+          <span class="lang-bn"><strong>ডিপোর অবস্থান:</strong> আরামবাগ সেন্ট্রাল বাস টার্মিনাস, বন্দর রোড (লিংক রোডের নিকটে), আরামবাগ, হুগলি।</span>
+        </li>
+        <li>
+          <span class="lang-en"><strong>Counter Timings:</strong> 05:00 AM to 08:30 PM daily for ticket booking, route enquiry, and monthly pass inquiries.</span>
+          <span class="lang-bn"><strong>কাউন্টার খোলা থাকে:</strong> প্রতিদিন ভোর ৫:০০ টা থেকে রাত ৮:৩০ টা পর্যন্ত টিকিট বুকিং ও রুট সংক্রান্ত তথ্যের জন্য।</span>
+        </li>
+        <li>
+          <span class="lang-en"><strong>Official Online Seat Booking:</strong> Book state bus seats online in advance at <a href="https://online.sbstc.co.in" target="_blank" rel="noopener noreferrer" style="color:#0f766e; font-weight:700;">online.sbstc.co.in</a>.</span>
+          <span class="lang-bn"><strong>অনলাইন অগ্রিম আসন বুকিং:</strong> সরকারি বাসের টিকিট ঘরে বসেই কাটতে পারেন <a href="https://online.sbstc.co.in" target="_blank" rel="noopener noreferrer" style="color:#0f766e; font-weight:700;">online.sbstc.co.in</a> পোর্টালে।</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Directory Section -->
   <section id="directory">
     <div class="section-header">
       <div class="section-title">
-        <h3 id="sec-title">Local Tour & Travel Agencies in Arambagh</h3>
-        <p id="sec-sub">Free public listings with direct telephone numbers. All local operators listed at no charge.</p>
+        <h3 id="sec-title">
+          <span class="lang-en">Local Tour & Travel Agencies in Arambagh</span>
+          <span class="lang-bn">আরামবাগের ট্রাভেল ও গাড়ি সেবা প্রদানকারী</span>
+        </h3>
+        <p id="sec-sub">
+          <span class="lang-en">Free public listings with direct telephone numbers. All local operators listed at no charge.</span>
+          <span class="lang-bn">সরাসরি ফোন নম্বর সহ উন্মুক্ত তালিকা। কোনো এজেন্সির থেকে কোনো চার্জ নেওয়া হয় না।</span>
+        </p>
       </div>
     </div>
 
@@ -528,14 +897,14 @@
       </select>
     </div>
 
-    <!-- Agency Cards Grid (Open & Free Listings) -->
+    <!-- Agency Cards Grid -->
     <div class="agencies-grid" id="agenciesGrid">
 
       <!-- Agency 1 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">Radhakrishna Travels</div>
-          <div class="agency-loc">📍 Ward No. 13, Nischintapur Road, Arambagh</div>
+          <div class="agency-name">Radhakrishna Travels (রাধাকৃষ্ণ ট্রাভেলস)</div>
+          <div class="agency-loc">📍 Ward No. 13, Nischintapur Road, Arambagh (ওয়ার্ড ১৩, নিশ্চিন্তপুর রোড)</div>
           <div class="agency-tags">
             <span class="tag">Outstation Cabs</span>
             <span class="tag">Dzire & Bolero</span>
@@ -551,8 +920,8 @@
       <!-- Agency 2 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">Annapurna Bhraman Agency</div>
-          <div class="agency-loc">📍 Near Police Station, Arambagh Court</div>
+          <div class="agency-name">Annapurna Bhraman Agency (অন্নপূর্ণা ভ্রমণ এজেন্সি)</div>
+          <div class="agency-loc">📍 Near Police Station, Arambagh Court (আরামবাগ কোর্ট, থানার কাছে)</div>
           <div class="agency-tags">
             <span class="tag emergency">🚑 Hospital Shuttles</span>
             <span class="tag">Kamarpukur Tours</span>
@@ -560,7 +929,7 @@
           </div>
         </div>
         <div class="agency-footer">
-          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <span style="font-size:0.8rem; color:#64748b;">Priority Medical</span>
           <a href="tel:+919434288123" class="btn-call">📞 Call: 9434288123</a>
         </div>
       </div>
@@ -568,8 +937,8 @@
       <!-- Agency 3 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">Maa Chamunda Travels</div>
-          <div class="agency-loc">📍 Link Road, Near Central Bus Stand, Arambagh</div>
+          <div class="agency-name">Maa Chamunda Travels (মা চামুণ্ডা ট্রাভেলস)</div>
+          <div class="agency-loc">📍 Link Road, Near Central Bus Stand, Arambagh (বাস স্ট্যান্ড লিংক রোড)</div>
           <div class="agency-tags">
             <span class="tag">Maxi Cabs</span>
             <span class="tag">Jayrambati Group Tours</span>
@@ -577,7 +946,7 @@
           </div>
         </div>
         <div class="agency-footer">
-          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <span style="font-size:0.8rem; color:#64748b;">Pilgrimage Specialist</span>
           <a href="tel:+919733511984" class="btn-call">📞 Call: 9733511984</a>
         </div>
       </div>
@@ -585,8 +954,8 @@
       <!-- Agency 4 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">Spectrum Tour-Travels</div>
-          <div class="agency-loc">📍 PC Sen More, Arambagh</div>
+          <div class="agency-name">Spectrum Tour-Travels (স্পেকট্রাম ট্যুর-ট্রাভেলস)</div>
+          <div class="agency-loc">📍 PC Sen More, Arambagh (পি সি সেন মোড়, আরামবাগ)</div>
           <div class="agency-tags">
             <span class="tag">Digha-Puri Packages</span>
             <span class="tag">Train Ticketing</span>
@@ -594,7 +963,7 @@
           </div>
         </div>
         <div class="agency-footer">
-          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <span style="font-size:0.8rem; color:#64748b;">Holiday Packages</span>
           <a href="tel:+919832877652" class="btn-call">📞 Call: 9832877652</a>
         </div>
       </div>
@@ -602,15 +971,15 @@
       <!-- Agency 5 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">Taraknath Travels (Arambagh Wing)</div>
-          <div class="agency-loc">📍 Station Road, Arambagh</div>
+          <div class="agency-name">Taraknath Travels (তারকনাথ ট্রাভেলস)</div>
+          <div class="agency-loc">📍 Station Road, Arambagh (স্টেশন রোড, আরামবাগ)</div>
           <div class="agency-tags">
             <span class="tag emergency">🚑 24x7 Ambulance & Cabs</span>
             <span class="tag">Kolkata Transfer</span>
           </div>
         </div>
         <div class="agency-footer">
-          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <span style="font-size:0.8rem; color:#64748b;">24x7 Emergency</span>
           <a href="tel:+919434833419" class="btn-call">📞 Call: 9434833419</a>
         </div>
       </div>
@@ -618,8 +987,8 @@
       <!-- Agency 6 -->
       <div class="agency-card">
         <div>
-          <div class="agency-name">AARAB Tour & Travels</div>
-          <div class="agency-loc">📍 Hospital More, Arambagh</div>
+          <div class="agency-name">AARAB Tour & Travels (আরাব ট্যুর অ্যান্ড ট্রাভেলস)</div>
+          <div class="agency-loc">📍 Hospital More, Arambagh (হসপিটাল মোড়, আরামবাগ)</div>
           <div class="agency-tags">
             <span class="tag emergency">🚑 Hospital Pickup</span>
             <span class="tag">Bardhaman Route</span>
@@ -627,7 +996,7 @@
           </div>
         </div>
         <div class="agency-footer">
-          <span style="font-size:0.8rem; color:#64748b;">Public Listing</span>
+          <span style="font-size:0.8rem; color:#64748b;">Emergency Hospital Fleet</span>
           <a href="tel:+919732100482" class="btn-call">📞 Call: 9732100482</a>
         </div>
       </div>
@@ -638,23 +1007,41 @@
   <!-- Voluntary Partnership Info Strip -->
   <div class="partner-callout">
     <div>
-      <h4 style="font-size:0.95rem; color:#0f766e; margin-bottom:2px;">Are you a travel company or cab owner in Arambagh?</h4>
-      <p>All listings on this platform are <strong>100% free</strong>. We never charge companies to be listed. If an agency voluntarily wants to partner with us for dedicated patient standby or priority tagging, contact us on WhatsApp.</p>
+      <h4 style="font-size:0.95rem; color:#0f766e; margin-bottom:2px;">
+        <span class="lang-en">Are you a travel company, bus operator, or cab owner in Arambagh?</span>
+        <span class="lang-bn">আপনি কি আরামবাগের কোনো ট্রাভেল এজেন্সি, বাস বা গাড়ির মালিক?</span>
+      </h4>
+      <p>
+        <span class="lang-en">All listings on this platform are <strong>100% free</strong>. We never charge companies to be listed. To add your agency or update bus timings, submit our quick Google Form.</span>
+        <span class="lang-bn">এই প্ল্যাটফর্মের সমস্ত তালিকাভুক্তি <strong>সম্পূর্ণ বিনামূল্যে</strong>। তালিকায় নাম অন্তর্ভুক্ত করতে বা বাসের সময়সূচী আপডেট করতে আমাদের গুগল ফর্মটি পূরণ করুন।</span>
+      </p>
     </div>
-    <a href="https://forms.gle/kwRh7jYA8vRUfQxh6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border:1px solid #0f766e;">📝 Voluntary Partner & Inquiry Form</a>
+    <a href="https://forms.gle/kwRh7jYA8vRUfQxh6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border:1px solid #0f766e;">
+      <span class="lang-en">📝 Voluntary Partner & Inquiry Form</span>
+      <span class="lang-bn">📝 এজেন্সি যুক্ত করার ফর্ম</span>
+    </a>
   </div>
 
   <!-- Standard Fare Calculator Section -->
   <section id="calculator" class="calc-box">
     <div class="section-header">
       <div class="section-title">
-        <h3>Fair Rate Benchmark (স্বচ্ছ ন্যায্য ভাড়ার তালিকা)</h3>
-        <p>Market benchmark rates to protect passengers and patients from price-gouging.</p>
+        <h3>
+          <span class="lang-en">Fair Rate Benchmark (স্বচ্ছ ন্যায্য ভাড়ার তালিকা)</span>
+          <span class="lang-bn">স্বচ্ছ ন্যায্য ভাড়ার তালিকা ও ক্যালকুলেটর</span>
+        </h3>
+        <p>
+          <span class="lang-en">Market benchmark rates to protect passengers and patients from price-gouging.</span>
+          <span class="lang-bn">দালালি বা অতিরিক্ত ভাড়া দাবি থেকে যাত্রী ও সাধারণ রোগীদের রক্ষা করার জন্য সঠিক বাজারমূল্য।</span>
+        </p>
       </div>
     </div>
     <div class="calc-grid">
       <div class="form-group">
-        <label>Pickup Location</label>
+        <label>
+          <span class="lang-en">Pickup Location</span>
+          <span class="lang-bn">যাত্রার শুরু (পিকআপ)</span>
+        </label>
         <select id="originSel" class="form-control" onchange="calcFare()">
           <option value="bus_stand">Arambagh Central Bus Stand</option>
           <option value="hospital_more">Hospital More / Subdivisional Hospital</option>
@@ -662,7 +1049,10 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Destination</label>
+        <label>
+          <span class="lang-en">Destination</span>
+          <span class="lang-bn">গন্তব্যস্থল</span>
+        </label>
         <select id="destSel" class="form-control" onchange="calcFare()">
           <option value="kolkata">Kolkata Medical Hub (SSKM / Medical College / NRS) (~82 km)</option>
           <option value="howrah">Howrah Rly Station / Airport (~78 km)</option>
@@ -673,7 +1063,10 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Vehicle Type</label>
+        <label>
+          <span class="lang-en">Vehicle Type</span>
+          <span class="lang-bn">গাড়ির ধরন</span>
+        </label>
         <select id="vehSel" class="form-control" onchange="calcFare()">
           <option value="hatchback">Hatchback (Alto / WagonR - 4 Seater)</option>
           <option value="sedan">Sedan (Dzire / Etios - AC 4 Seater)</option>
@@ -683,108 +1076,125 @@
     </div>
     <div class="calc-res">
       <div>
-        <div style="font-size:0.8rem; color:#64748b;">Fair Market Benchmark (Includes Fuel, Driver & Tolls):</div>
+        <div style="font-size:0.8rem; color:#64748b;">
+          <span class="lang-en">Fair Market Benchmark (Includes Fuel, Driver & Tolls):</span>
+          <span class="lang-bn">ন্যায্য বাজার দর (তেল, ড্রাইভার ও টোল সহ):</span>
+        </div>
         <div class="calc-amount" id="fareDisplay">₹ 2,400</div>
       </div>
-      <a href="#directory" class="btn btn-primary">Find an Agent on this Route</a>
+      <a href="#directory" class="btn btn-primary">
+        <span class="lang-en">Find an Agent on this Route</span>
+        <span class="lang-bn">এই রুটের চালক খুঁজুন</span>
+      </a>
     </div>
   </section>
 
-
-  <!-- Quick Navigation Bar for In-Depth Guides -->
-  <nav class="nav-bar">
-    <a href="#directory">📞 Cab Directory</a>
-    <a href="#calculator">📊 Rate Benchmark</a>
-    <a href="#medical-guide">🚑 Medical Transit Guide</a>
-    <a href="#pilgrimage-guide">🛕 Kamarpukur & Jayrambati Guide</a>
-    <a href="#transport-guide">🚆 Bus & Train Schedules</a>
-    <a href="#about-manch">🏛️ About & Non-Profit Charter</a>
-    <a href="#faq-section">❓ Common FAQs</a>
-  </nav>
-
   <!-- 1. Emergency Medical Transit Guide Section -->
   <section id="medical-guide" class="guide-card">
-    <h3>🚑 Arambagh to Kolkata & Bardhaman: Emergency Patient Transit Guide (জরুরি চিকিৎসা পরিবহন নির্দেশিকা)</h3>
-    <p>Arambagh Subdivisional Hospital serves a vast rural population spanning Arambagh, Goghat, Khanakul, and Pursurah. When critically ill patients or road trauma victims require advanced tertiary medical facilities, emergency transport to Kolkata or Bardhaman Medical College is needed rapidly without delays or exploitative middleman fares.</p>
+    <h3>
+      <span class="lang-en">🚑 Arambagh to Kolkata & Bardhaman: Emergency Patient Transit Guide</span>
+      <span class="lang-bn">🚑 আরামবাগ থেকে কলকাতা ও বর্ধমান: জরুরি চিকিৎসা পরিবহন নির্দেশিকা</span>
+    </h3>
+    <p>
+      <span class="lang-en">Arambagh Subdivisional Hospital serves a vast rural population spanning Arambagh, Goghat, Khanakul, and Pursurah. When critically ill patients or road trauma victims require advanced tertiary medical facilities, emergency transport to Kolkata or Bardhaman Medical College is needed rapidly without delays or exploitative middleman fares.</span>
+      <span class="lang-bn">আরামবাগ মহকুমা হাসপাতাল আরামবাগ, গোঘাট, খানাকুল ও পুরশুড়া অঞ্চলের বিশাল গ্রামীণ জনসংখ্যার প্রধান ভরসা। জটিল রোগী বা ট্রমা আক্রান্তদের যখন দ্রুত কলকাতা বা বর্ধমান মেডিকেল কলেজে স্থানান্তর করতে হয়, তখন দালালি ও অতিরিক্ত ভাড়ার শিকার না হয়ে দ্রুত পরিবহন অত্যন্ত জরুরি।</span>
+    </p>
     
-    <h4>Primary Medical Transit Highway Corridors</h4>
-    <table class="route-table">
-      <thead>
-        <tr>
-          <th>Destination Hospital</th>
-          <th>Highway Route</th>
-          <th>Est. Distance & Normal Time</th>
-          <th>Tolls & Key Checkpoints</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>SSKM Hospital / IPGMER</strong><br><small>Bhowanipore, Kolkata</small></td>
-          <td>Arambagh → Champadanga → Dankuni (SH-2) → Kona Expressway (NH-16) → Vidyasagar Setu (2nd Hooghly Bridge)</td>
-          <td>82 km<br>(~2 hrs 10 mins; ~1 hr 40 mins at night)</td>
-          <td>Dankuni Toll Plaza & Vidyasagar Setu Toll. Dedicated ambulance lane available.</td>
-        </tr>
-        <tr>
-          <td><strong>Medical College & Hospital / NRS</strong><br><small>College Street / Sealdah, Kolkata</small></td>
-          <td>Arambagh → Champadanga → Dankuni → Belghoria Expressway → Dunlop → Central Avenue</td>
-          <td>84 km<br>(~2 hrs 25 mins)</td>
-          <td>Nibra / Belghoria Expressway. Traffic congestion near Dunlop and Shyambazar during peak morning hours.</td>
-        </tr>
-        <tr>
-          <td><strong>Chittaranjan National Cancer Institute (CNCI)</strong><br><small>New Town, Rajarhat</small></td>
-          <td>Arambagh → Dankuni → Belghoria Expressway → Rajarhat Main Road → Major Arterial Road</td>
-          <td>90 km<br>(~2 hrs 15 mins)</td>
-          <td>Fastest bypass route avoiding central Kolkata city traffic.</td>
-        </tr>
-        <tr>
-          <td><strong>Bardhaman Medical College & Hospital</strong><br><small>Baburbag, Bardhaman</small></td>
-          <td>Arambagh → Uchalan → Sadhanpur → Burdwan Town (Arambagh–Burdwan State Highway)</td>
-          <td>45 km<br>(~1 hr 15 mins)</td>
-          <td>Single road connecting North Arambagh to Burdwan. Excellent alternative for urgent orthopedic and trauma emergencies.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="tip-box" style="background: #fffbeb; border-color: #d97706; color: #92400e;">
-      <strong>📞 Arambagh Bus Stand & Depot Key Contact Information:</strong>
-      <ul style="margin: 0.5rem 0 0 1rem; color: #78350f;">
-        <li><strong>Arambagh Central Bus Terminus Enquiry Desk:</strong> Bandar Road, Central Bus Stand (Operating hours: 5:00 AM – 9:00 PM).</li>
-        <li><strong>SBSTC & State Bus Booking Counter:</strong> Platform No. 1 & 2 for Kolkata (Esplanade/Babughat) and Digha long-distance express services.</li>
-        <li><strong>Tarakeswar Railway Station Enquiry:</strong> 03212-276228 / Tarakeswar Rly Station Master.</li>
-      </ul>
+    <h4>
+      <span class="lang-en">Primary Medical Transit Highway Corridors</span>
+      <span class="lang-bn">প্রধান জরুরি চিকিৎসা হাইওয়ে রুটসমূহ</span>
+    </h4>
+    <div style="overflow-x:auto;">
+      <table class="route-table">
+        <thead>
+          <tr>
+            <th><span class="lang-en">Destination Hospital</span><span class="lang-bn">হাসপাতাল</span></th>
+            <th><span class="lang-en">Highway Route</span><span class="lang-bn">হাইওয়ে রুট</span></th>
+            <th><span class="lang-en">Est. Distance & Normal Time</span><span class="lang-bn">দূরত্ব ও স্বাভাবিক সময়</span></th>
+            <th><span class="lang-en">Tolls & Key Checkpoints</span><span class="lang-bn">টোল ও চেকপোস্ট</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SSKM Hospital / IPGMER</strong><br><small>Bhowanipore, Kolkata</small></td>
+            <td>Arambagh → Champadanga → Dankuni (SH-2) → Kona Expressway (NH-16) → Vidyasagar Setu (2nd Hooghly Bridge)</td>
+            <td>82 km<br>(~2 hrs 10 mins; ~1 hr 40 mins at night)</td>
+            <td>Dankuni Toll Plaza & Vidyasagar Setu Toll. Dedicated ambulance lane available.</td>
+          </tr>
+          <tr>
+            <td><strong>Medical College & Hospital / NRS</strong><br><small>College Street / Sealdah, Kolkata</small></td>
+            <td>Arambagh → Champadanga → Dankuni → Belghoria Expressway → Dunlop → Central Avenue</td>
+            <td>84 km<br>(~2 hrs 25 mins)</td>
+            <td>Nibra / Belghoria Expressway. Traffic congestion near Dunlop and Shyambazar during peak morning hours.</td>
+          </tr>
+          <tr>
+            <td><strong>Chittaranjan National Cancer Institute (CNCI)</strong><br><small>New Town, Rajarhat</small></td>
+            <td>Arambagh → Dankuni → Belghoria Expressway → Rajarhat Main Road → Major Arterial Road</td>
+            <td>90 km<br>(~2 hrs 15 mins)</td>
+            <td>Fastest bypass route avoiding central Kolkata city traffic.</td>
+          </tr>
+          <tr>
+            <td><strong>Bardhaman Medical College & Hospital</strong><br><small>Baburbag, Bardhaman</small></td>
+            <td>Arambagh → Uchalan → Sadhanpur → Burdwan Town (Arambagh–Burdwan State Highway)</td>
+            <td>45 km<br>(~1 hr 15 mins)</td>
+            <td>Single road connecting North Arambagh to Burdwan. Excellent alternative for urgent orthopedic and trauma emergencies.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="tip-box">
-      <strong>💡 Critical Patient Transit Advice:</strong>
+      <strong>
+        <span class="lang-en">💡 Critical Patient Transit Advice:</span>
+        <span class="lang-bn">💡 জরুরি রোগী স্থানান্তরের জন্য প্রয়োজনীয় পরামর্শ:</span>
+      </strong>
       <ul style="margin: 0.5rem 0 0 1rem;">
-        <li><strong>Verify Oxygen Support:</strong> Always check cylinder pressure with the driver before moving a respiratory patient out of Arambagh Subdivisional Hospital.</li>
-        <li><strong>Keep Hospital Referral Slips Handy:</strong> Keep the doctor's transfer/referral slip accessible at toll plazas and police check posts along the Kona Expressway to request priority green-corridor passage during traffic.</li>
-        <li><strong>Standard Fare Benchmark:</strong> A standard AC Hatchback/Sedan round-trip for patients should benchmark between ₹2,200 and ₹2,500 including tolls. Dedicated stretcher ambulances typically range from ₹3,000 to ₹4,000 depending on medical equipment.</li>
+        <li>
+          <span class="lang-en"><strong>Verify Oxygen Support:</strong> Always check cylinder pressure with the driver before moving a respiratory patient out of Arambagh Subdivisional Hospital.</span>
+          <span class="lang-bn"><strong>অক্সিজেন পরীক্ষা:</strong> শ্বাসকষ্টের রোগীদের গাড়িতে তোলার আগে চালকের সামনে সিলিন্ডারের প্রেসার গজ ও ফ্লো-মিটার ভালো করে দেখে নিন।</span>
+        </li>
+        <li>
+          <span class="lang-en"><strong>Keep Hospital Referral Slips Handy:</strong> Keep the doctor's transfer/referral slip accessible at toll plazas and police check posts along the Kona Expressway to request priority green-corridor passage during traffic.</span>
+          <span class="lang-bn"><strong>রেফারেল কাগজ সাথে রাখুন:</strong> কোনা এক্সপ্রেসওয়ে এবং টোল প্লাজায় যানজটের সময় ট্রাফিক পুলিশকে ডাক্তারের রেফারেল স্লিপ দেখিয়ে অগ্রাধিকারমূলক গ্রিন করিডোর বা অ্যাম্বুলেন্স লেনের সাহায্য নিন।</span>
+        </li>
+        <li>
+          <span class="lang-en"><strong>Standard Fare Benchmark:</strong> A standard AC Hatchback/Sedan round-trip for patients should benchmark between ₹2,200 and ₹2,500 including tolls. Dedicated stretcher ambulances typically range from ₹3,000 to ₹4,000 depending on medical equipment.</span>
+          <span class="lang-bn"><strong>ভাড়ার সীমা:</strong> কলকাতা যাওয়ার জন্য সাধারণ এসি চারচাকার ক্ষেত্রে টোল সহ ভাড়া ₹২,২০০ থেকে ₹২,৫০০। উন্নত স্ট্রেচার বা অক্সিজেন সহ অ্যাম্বুলেন্সের ক্ষেত্রে ₹৩,০০০ থেকে ₹৪,০০০ এর বেশি যেন না হয়।</span>
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- 2. Kamarpukur & Jayrambati Spiritual Pilgrimage Guide -->
   <section id="pilgrimage-guide" class="guide-card">
-    <h3>🛕 Kamarpukur & Jayrambati Pilgrimage & Heritage Travel Guide (কামারপুকুর ও জয়রামবাটী তীর্থ ভ্রমণ)</h3>
-    <p>Arambagh serves as the gateway to the sacred twin spiritual hubs of <strong>Kamarpukur</strong> (the holy birthplace of Bhagavan Sri Ramakrishna Paramahamsa) and <strong>Jayrambati</strong> (the sacred birthplace of Holy Mother Sri Sarada Devi). Thousands of pilgrims and spiritual seekers from across India and abroad arrive at Arambagh Bus Stand and Railway Station daily.</p>
+    <h3>
+      <span class="lang-en">🛕 Kamarpukur & Jayrambati Pilgrimage & Heritage Travel Guide</span>
+      <span class="lang-bn">🛕 কামারপুকুর ও জয়রামবাটী তীর্থ ভ্রমণ নির্দেশিকা</span>
+    </h3>
+    <p>
+      <span class="lang-en">Arambagh serves as the gateway to the sacred twin spiritual hubs of <strong>Kamarpukur</strong> (the holy birthplace of Bhagavan Sri Ramakrishna Paramahamsa) and <strong>Jayrambati</strong> (the sacred birthplace of Holy Mother Sri Sarada Devi). Thousands of pilgrims and spiritual seekers from across India and abroad arrive at Arambagh Bus Stand and Railway Station daily.</span>
+      <span class="lang-bn">যুগাবতার ভগবান শ্রীরামকৃষ্ণ পরমহংসদেবের পুণ্য জন্মভূমি <strong>কামারপুকুর</strong> এবং জগজ্জননী শ্রীশ্রী সারদা মায়ের পবিত্র জন্মস্থান <strong>জয়রামবাটী</strong> যাওয়ার মূল প্রবেশদ্বার হলো আরামবাগ। প্রতিদিন দেশ-বিদেশ থেকে বহু ভক্ত ও পুণ্যার্থী আরামবাগ বাস টার্মিনাস ও রেল স্টেশনে এসে পৌঁছান।</span>
+    </p>
 
-    <h4>Key Pilgrimage Centers & Timings</h4>
+    <h4>
+      <span class="lang-en">Key Pilgrimage Centers & Timings</span>
+      <span class="lang-bn">প্রধান মন্দির ও সময়সূচী</span>
+    </h4>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;">
       <div style="background: #fffbeb; border: 1px solid #fef3c7; border-radius: 8px; padding: 1.25rem;">
-        <h5 style="color: #92400e; font-size: 1rem; margin-bottom: 6px;">🙏 Sri Ramakrishna Math & Mission, Kamarpukur</h5>
+        <h5 style="color: #92400e; font-size: 1rem; margin-bottom: 6px;">🙏 Sri Ramakrishna Math & Mission, Kamarpukur (কামারপুকুর মঠ)</h5>
         <p style="font-size: 0.85rem; color: #78350f;"><strong>Distance from Arambagh:</strong> ~14 km (South-West via Goghat Road).</p>
         <p style="font-size: 0.85rem; color: #78350f;"><strong>Temple Visiting Hours:</strong></p>
         <ul style="font-size: 0.82rem; color: #78350f; margin-left: 1.2rem;">
           <li>Morning: 6:00 AM – 11:30 AM</li>
-          <li>Evening: 3:30 PM – 8:00 PM (Aarati around 6:30 PM)</li>
+          <li>Evening: 3:30 PM – 8:00 PM (Sandhya Aarati around 6:30 PM)</li>
           <li>Noon Prasad (Bhog) Coupons: Available at the Math office from 8:00 AM to 10:30 AM.</li>
         </ul>
         <p style="font-size: 0.82rem; color: #78350f; margin-top: 6px;">Key sites include the Ancestral Mango Tree planted by Sri Ramakrishna, Haldarpukur, and the serene temple constructed on the family cottage grounds.</p>
       </div>
 
       <div style="background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 8px; padding: 1.25rem;">
-        <h5 style="color: #9d174d; font-size: 1rem; margin-bottom: 6px;">🌸 Matri Mandir & Sarada Devi Birthplace, Jayrambati</h5>
+        <h5 style="color: #9d174d; font-size: 1rem; margin-bottom: 6px;">🌸 Matri Mandir & Sarada Devi Birthplace, Jayrambati (মাতৃমন্দির জয়রামবাটী)</h5>
         <p style="font-size: 0.85rem; color: #831843;"><strong>Distance from Kamarpukur:</strong> ~5 km (Crosses into Bankura district boundary).</p>
         <p style="font-size: 0.85rem; color: #831843;"><strong>Temple Visiting Hours:</strong></p>
         <ul style="font-size: 0.82rem; color: #831843; margin-left: 1.2rem;">
@@ -796,8 +1206,14 @@
       </div>
     </div>
 
-    <h4>Recommended Pilgrimage Tour Fares from Arambagh</h4>
-    <p>A full-day pilgrimage circuit covering Arambagh → Kamarpukur (Math, Haldarpukur) → Jayrambati (Matri Mandir) → Koalpara Ashram → Arambagh return typically takes 5 to 6 hours:</p>
+    <h4>
+      <span class="lang-en">Recommended Pilgrimage Tour Fares from Arambagh</span>
+      <span class="lang-bn">আরামবাগ থেকে কামারপুকুর-জয়রামবাটী গাড়ি ভাড়ার সঠিক হার</span>
+    </h4>
+    <p>
+      <span class="lang-en">A full-day pilgrimage circuit covering Arambagh → Kamarpukur (Math, Haldarpukur) → Jayrambati (Matri Mandir) → Koalpara Ashram → Arambagh return typically takes 5 to 6 hours:</span>
+      <span class="lang-bn">আরামবাগ থেকে কামারপুকুর (মঠ ও লাহাবাবুদের পাঠশালা) → জয়রামবাটী (মাতৃমন্দির ও পুণ্যপুকুর) → কোয়ালপাড়া আশ্রম ঘুরে আরামবাগ ফেরার প্যাকেজ ট্যুর (সময় লাগে ৫-৬ ঘণ্টা):</span>
+    </p>
     <ul>
       <li><strong>AC 4-Seater Hatchback (Alto/WagonR):</strong> Fair market rate is ₹1,400 – ₹1,600 (full vehicle return).</li>
       <li><strong>AC Sedan (Dzire/Etios):</strong> Fair market rate is ₹1,700 – ₹1,900.</li>
@@ -807,122 +1223,174 @@
 
   <!-- 3. Local Transit, Bus & Train Connectivity Guide -->
   <section id="transport-guide" class="guide-card">
-    <h3>🚆 Arambagh Public Transport: Local Train & Bus Guide (আরামবাগ ট্রেন ও বাস নির্দেশিকা)</h3>
-    <p>Arambagh is well connected to Kolkata and neighboring districts through both Indian Railways (Eastern Railway Suburban Network) and state/private highway bus networks.</p>
+    <h3>
+      <span class="lang-en">🚆 Arambagh Public Transport: Local Train & General Bus Network</span>
+      <span class="lang-bn">🚆 আরামবাগ গণপরিবহন: লোকাল ট্রেন ও সাধারণ বাস নেটওয়ার্ক</span>
+    </h3>
+    <p>
+      <span class="lang-en">Arambagh is well connected to Kolkata and neighboring districts through both Indian Railways (Eastern Railway Suburban Network) and state/private highway bus networks.</span>
+      <span class="lang-bn">আরামবাগ ভারতীয় রেলের পূর্ব রেলওয়ে শহরতলি শাখা এবং জেলা ও দূরপাল্লার বাস রুটের মাধ্যমে কলকাতা ও পার্শ্ববর্তী জেলাগুলির সাথে অত্যন্ত সুসংযুক্ত।</span>
+    </p>
 
-    <h4>A. Howrah–Tarakeswar–Arambagh Railway Network</h4>
-    <p>The Tarakeswar–Arambagh branch line connects Arambagh directly to <strong>Howrah Junction (HWH)</strong> on the Broad Gauge EMU suburban rail system. Trains originate and terminate at Arambagh (Station Code: <strong>AMBG</strong>) and Goghat (GOGT):</p>
+    <h4>
+      <span class="lang-en">A. Howrah–Tarakeswar–Arambagh Railway Network</span>
+      <span class="lang-bn">ক. হাওড়া–তারকেশ্বর–আরামবাগ লোকাল ট্রেন সেবা</span>
+    </h4>
+    <p>
+      <span class="lang-en">The Tarakeswar–Arambagh branch line connects Arambagh directly to <strong>Howrah Junction (HWH)</strong> on the Broad Gauge EMU suburban rail system. Trains originate and terminate at Arambagh (Station Code: <strong>AMBG</strong>) and Goghat (GOGT):</span>
+      <span class="lang-bn">তারকেশ্বর–আরামবাগ ব্রডগেজ রেলওয়ে শাখা সরাসরি <strong>হাওড়া জংশন (HWH)</strong> এর সাথে যুক্ত। ট্রেনগুলি আরামবাগ (স্টেশন কোড: <strong>AMBG</strong>) ও গোঘাট (GOGT) পর্যন্ত যাতায়াত করে:</span>
+    </p>
     <ul>
       <li><strong>Direct EMU Locals:</strong> Several direct daily EMU local trains run between Howrah and Arambagh / Goghat via Sheoraphuli and Tarakeswar. Average journey time is approximately 2 hours 15 minutes.</li>
       <li><strong>Connecting Trains via Tarakeswar:</strong> Commuters frequently take local EMU trains from Arambagh to Tarakeswar (28 km, ~35 minutes), which offers frequent local trains to Howrah every 20–30 minutes during peak hours.</li>
       <li><strong>Suburban Train Fare:</strong> ₹20–₹25 from Arambagh to Howrah, making it the most affordable transport option for daily office-goers, students, and budget travelers.</li>
     </ul>
-
-    <h4>B. Arambagh Central Bus Terminus (Bandar Road)</h4>
-    <p>Arambagh Central Bus Stand is one of the busiest highway transit hubs in Hooghly district, operating round-the-clock state (SBSTC / NBSTC) and private long-distance buses:</p>
-    <table class="route-table">
-      <thead>
-        <tr>
-          <th>Bus Route</th>
-          <th>Frequency</th>
-          <th>Travel Time</th>
-          <th>Approx. Bus Fare</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Arambagh ⇄ Kolkata (Esplanade / Babughat)</strong></td>
-          <td>Every 20–30 mins (5:00 AM to 7:30 PM)</td>
-          <td>2.5 to 3 Hours</td>
-          <td>₹75 – ₹110</td>
-        </tr>
-        <tr>
-          <td><strong>Arambagh ⇄ Tarakeswar</strong></td>
-          <td>Every 10–15 mins</td>
-          <td>45 Mins</td>
-          <td>₹25 – ₹30</td>
-        </tr>
-        <tr>
-          <td><strong>Arambagh ⇄ Bardhaman Town</strong></td>
-          <td>Every 30 mins via Uchalan</td>
-          <td>1.5 Hours</td>
-          <td>₹45 – ₹55</td>
-        </tr>
-        <tr>
-          <td><strong>Arambagh ⇄ Bishnupur / Bankura</strong></td>
-          <td>Hourly regular services</td>
-          <td>2.5 to 3.5 Hours</td>
-          <td>₹70 – ₹95</td>
-        </tr>
-        <tr>
-          <td><strong>Arambagh ⇄ Digha Sea Beach</strong></td>
-          <td>Direct morning & evening holiday buses</td>
-          <td>4.5 to 5 Hours</td>
-          <td>₹170 – ₹220</td>
-        </tr>
-      </tbody>
-    </table>
   </section>
 
   <!-- 4. Frequently Asked Questions (FAQ) Section -->
   <section id="faq-section" class="guide-card">
-    <h3>❓ Frequently Asked Questions (সাধারণ প্রশ্নোত্তর)</h3>
+    <h3>
+      <span class="lang-en">❓ Frequently Asked Questions</span>
+      <span class="lang-bn">❓ সাধারণ প্রশ্নোত্তর (FAQ)</span>
+    </h3>
     
     <div class="faq-item">
-      <div class="faq-q">Q1: How do I book a cab from Arambagh without paying middlemen or commission?</div>
-      <div class="faq-a">Arambagh Yatri Sahayata Manch is 100% free and open. We do not charge passengers or travel operators any commission. Browse the verified local travel agencies in our directory above, compare with our benchmark fare card, and call the drivers or travel agency owners directly using their official telephone numbers.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q1: How do I book a cab from Arambagh without paying middlemen or commission?</span>
+        <span class="lang-bn">প্রশ্ন ১: কোনো দালালি বা কমিশন ছাড়া আরামবাগে কীভাবে সরাসরি গাড়ি বুক করব?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Arambagh Yatri Sahayata Manch is 100% free and open. We do not charge passengers or travel operators any commission. Browse the verified local travel agencies in our directory above, compare with our benchmark fare card, and call the drivers or travel agency owners directly using their official telephone numbers.</span>
+        <span class="lang-bn">আরামবাগ যাত্রী সহায়তা একটি সম্পূর্ণ উন্মুক্ত ও ফ্রি প্ল্যাটফর্ম। আমরা কোনো কমিশন নিই না। ওপরের ডিরেক্টরি থেকে যাচাইকৃত স্থানীয় অপারেটরদের সরাসরি ফোন করুন এবং ন্যায্য ভাড়ার তালিকা মিলিয়ে নিন।</span>
+      </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Q2: What is the fair price for an emergency taxi from Arambagh Hospital to Kolkata SSKM or Medical College?</div>
-      <div class="faq-a">The fair market rate for an AC Hatchback (WagonR/Alto) or Sedan (Dzire) is typically ₹2,200 to ₹2,500, which includes fuel, driver allowance, and highway toll fees. Avoid brokers at the hospital gate who quote ₹3,500 or higher for ordinary patient cabs.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q2: What is the fair price for an emergency taxi from Arambagh Hospital to Kolkata SSKM or Medical College?</span>
+        <span class="lang-bn">প্রশ্ন ২: আরামবাগ হাসপাতাল থেকে কলকাতা এসএসকেএম বা মেডিকেল কলেজে জরুরি গাড়ির ন্যায্য ভাড়া কত?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">The fair market rate for an AC Hatchback (WagonR/Alto) or Sedan (Dzire) is typically ₹2,200 to ₹2,500, which includes fuel, driver allowance, and highway toll fees. Avoid brokers at the hospital gate who quote ₹3,500 or higher for ordinary patient cabs.</span>
+        <span class="lang-bn">একটি এসি হ্যাচব্যাক (WagonR/Alto) বা সেডানের (Dzire) ন্যায্য রেট ₹২,২০০ থেকে ₹২,৫০০, যার মধ্যে তেল, ড্রাইভারের খরচ ও হাইওয়ে টোল অন্তর্ভুক্ত। হাসপাতালের গেটে থাকা দালালদের অতিরিক্ত দাম দেওয়া থেকে বিরত থাকুন।</span>
+      </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Q3: Are cabs available late at night in Arambagh for medical emergencies?</div>
-      <div class="faq-a">Yes. Several dedicated local operators near Hospital More and Arambagh Railway Station maintain 24x7 emergency on-call fleets. Look for the "Emergency Patient Transit" tag in our directory for agencies with 24-hour night dispatch capability.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q3: What are the SBSTC bus timings from Arambagh to Kolkata (Esplanade)?</span>
+        <span class="lang-bn">প্রশ্ন ৩: আরামবাগ থেকে কলকাতা ধর্মতলার এসবিএসটিসি বাস কখন কখন পাওয়া যায়?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Direct SBSTC express buses leave Arambagh Central Bus Stand throughout the day starting at 05:40 AM, 06:15 AM, 07:00 AM, 08:00 AM, 09:00 AM, 10:15 AM, 11:30 AM, 01:00 PM, 02:15 PM, 03:30 PM, and 04:30 PM. The government fare is ₹85–₹95.</span>
+        <span class="lang-bn">আরামবাগ ডিপো থেকে সকাল ৫:৪০, ৬:১৫, ৭:০০, ৮:০০, ৯:০০, ১০:১৫, ১১:৩০ এবং দুপুর ১:০০, ২:১৫, ৩:৩০ ও বিকাল ৪:৩০ টায় নিয়মিত বাস ছাড়ে। সরকারি এক্সপ্রেস ভাড়া মাত্র ₹৮৫ থেকে ₹৯৫।</span>
+      </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Q4: How far is Kamarpukur and Jayrambati from Arambagh, and how can I travel there?</div>
-      <div class="faq-a">Kamarpukur is approximately 14 km from Arambagh, and Jayrambati is another 5 km further. You can take a local bus from Arambagh Bus Stand towards Kamarpukur/Kotulpur, hire an auto/Toto, or book a full-day private taxi through any listed agency for ₹1,400–₹1,800.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q4: Are cabs available late at night in Arambagh for medical emergencies?</span>
+        <span class="lang-bn">প্রশ্ন ৪: গভীর রাতে কি আরামবাগে জরুরি চিকিৎসার জন্য গাড়ি বা অ্যাম্বুলেন্স পাওয়া যায়?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Yes. Several dedicated local operators near Hospital More and Arambagh Railway Station maintain 24x7 emergency on-call fleets. Look for the "Emergency Patient Transit" tag in our directory for agencies with 24-hour night dispatch capability.</span>
+        <span class="lang-bn">হ্যাঁ। হসপিটাল মোড় এবং আরামবাগ রেল স্টেশন চত্বরে কিছু নির্ভরযোগ্য এজেন্সি ২৪ ঘণ্টা অন-কল জরুরি সেবা প্রদান করে। ডিরেক্টরিতে '24x7 Emergency' ট্যাগ দেখে ফোন করুন।</span>
+      </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Q5: Can local travel agencies list their services on this platform?</div>
-      <div class="faq-a">Yes, any registered local travel company or vehicle owner operating in Arambagh, Goghat, Khanakul, or Pursurah can list their direct contact information completely free of charge by contacting our administrative desk.</div>
+      <div class="faq-q">
+        <span class="lang-en">Q5: How can a local travel agency or bus operator add or update their listing?</span>
+        <span class="lang-bn">প্রশ্ন ৫: স্থানীয় কোনো ট্রাভেল এজেন্সি বা বাস মালিক কীভাবে তালিকায় নিজের নাম যুক্ত করবেন?</span>
+      </div>
+      <div class="faq-a">
+        <span class="lang-en">Any genuine local travel company, taxi driver, or bus operator in Arambagh, Goghat, Khanakul, or Pursurah can list their direct telephone numbers completely free of cost by filling out our quick online Google Form linked on this page.</span>
+        <span class="lang-bn">আরামবাগ মহকুমার যেকোনো বৈধ গাড়ি বা ট্রাভেল এজেন্সি সম্পূর্ণ বিনামূল্যে আমাদের পোর্টালে তথ্য যুক্ত করতে পারেন। এই পেজে দেওয়া অনলাইন গুগল ফর্মের মাধ্যমে আবেদন করুন।</span>
+      </div>
     </div>
   </section>
 
   <!-- 5. About Arambagh Yatri Sahayata Manch Section -->
   <section id="about-manch" class="guide-card">
-    <h3>🏛️ About Arambagh Yatri Sahayata Manch (আমাদের পরিচিতি ও অঙ্গীকার)</h3>
-    <p><strong>Arambagh Yatri Sahayata Manch (আরামবাগ যাত্রী সহায়তা মঞ্চ)</strong> is a civic public welfare initiative established to support rural commuters, elderly pilgrims, and emergency patients traveling across the Arambagh Sub-division of Hooghly district, West Bengal.</p>
+    <h3>
+      <span class="lang-en">🏛️ About Arambagh Yatri Sahayata Manch</span>
+      <span class="lang-bn">🏛️ আরামবাগ যাত্রী সহায়তা মঞ্চ: আমাদের পরিচয় ও সামাজিক অঙ্গীকার</span>
+    </h3>
+    <p>
+      <span class="lang-en"><strong>Arambagh Yatri Sahayata Manch (আরামবাগ যাত্রী সহায়তা মঞ্চ)</strong> is a civic public welfare initiative established to support rural commuters, elderly pilgrims, and emergency patients traveling across the Arambagh Sub-division of Hooghly district, West Bengal.</span>
+      <span class="lang-bn"><strong>আরামবাগ যাত্রী সহায়তা মঞ্চ</strong> হুগলি জেলার আরামবাগ মহকুমার গ্রামীণ সাধারণ যাত্রী, তীর্থযাত্রী এবং জরুরি রোগীদের স্বার্থে গঠিত একটি অলাভজনক নাগরিক কল্যাণ উদ্যোগ।</span>
+    </p>
     
-    <h4>Our Three Core Principles:</h4>
+    <h4>
+      <span class="lang-en">Our Three Core Principles:</span>
+      <span class="lang-bn">আমাদের মূল ৩টি অঙ্গীকার:</span>
+    </h4>
     <ul>
-      <li><strong>Zero Brokerage (দালালি মুক্ত প্ল্যাটফর্ম):</strong> Passengers and vehicle owners connect directly with zero intermediary cuts, ensuring competitive earnings for drivers and honest rates for families.</li>
-      <li><strong>Emergency Patient Priority (জরুরি রোগী অগ্রাধিকার):</strong> Facilitating fast, dependable hospital transit to Kolkata and Bardhaman tertiary centers with transparent tariffs so no family is exploited during grief or distress.</li>
-      <li><strong>Transparent Public Rate Benchmarks (ন্যায্য ভাড়ার মাপকাঠি):</strong> Publishing authentic fuel and distance-based fare benchmarks for all key routes across Arambagh, Kamarpukur, Tarakeswar, and Kolkata.</li>
+      <li>
+        <span class="lang-en"><strong>Zero Brokerage (দালালি মুক্ত প্ল্যাটফর্ম):</strong> Passengers and vehicle owners connect directly with zero intermediary cuts, ensuring competitive earnings for drivers and honest rates for families.</span>
+        <span class="lang-bn"><strong>দালালি মুক্ত সেবা:</strong> যাত্রী ও ড্রাইভারদের মধ্যে কোনো দালাল বা মধ্যস্বত্বভোগী থাকবে না। কোনো কমিশন ছাড়া সরাসরি যোগাযোগ হবে।</span>
+      </li>
+      <li>
+        <span class="lang-en"><strong>Emergency Patient Priority (জরুরি রোগী অগ্রাধিকার):</strong> Facilitating fast, dependable hospital transit to Kolkata and Bardhaman tertiary centers with transparent tariffs so no family is exploited during grief or distress.</span>
+        <span class="lang-bn"><strong>জরুরি রোগী অগ্রাধিকার:</strong> সংকটজনক পরিস্থিতিতে কলকাতার হাসপাতালে রোগী স্থানান্তরে স্বচ্ছ ও নির্ধারিত ভাড়ার নিশ্চয়তা।</span>
+      </li>
+      <li>
+        <span class="lang-en"><strong>Transparent Public Rate Benchmarks (ন্যায্য ভাড়ার মাপকাঠি):</strong> Publishing authentic fuel and distance-based fare benchmarks for all key routes across Arambagh, Kamarpukur, Tarakeswar, and Kolkata.</span>
+        <span class="lang-bn"><strong>স্বচ্ছ ন্যায্য ভাড়া:</strong> আরামবাগ, কামারপুকুর, তারকেশ্বর ও কলকাতার সমস্ত প্রধান রুটের সরকারি ও ন্যায্য ভাড়ার তালিকা প্রকাশ রাখা।</span>
+      </li>
     </ul>
 
-    <h4>Administrative Contact & Grievance Desk:</h4>
-    <p>For directory additions, corrections, or passenger guidance, contact our volunteer coordinator desk at Arambagh Bus Stand Road, Hooghly, West Bengal or reach out directly through our contact link.</p>
+    <h4>
+      <span class="lang-en">Administrative Desk:</span>
+      <span class="lang-bn">যোগাযোগের ঠিকানা:</span>
+    </h4>
+    <p>
+      <span class="lang-en">For directory additions, corrections, or passenger guidance, submit our Google Form or contact our volunteer desk at Arambagh Bus Stand Road, Hooghly, West Bengal.</span>
+      <span class="lang-bn">ডিরেক্টরিতে নাম অন্তর্ভুক্তিকরণ বা পরামর্শের জন্য আমাদের গুগল ফর্মটি পূরণ করুন অথবা আরামবাগ বাস স্ট্যান্ড রোড সংলগ্ন যোগাযোগ ডেস্কে যোগাযোগ করুন।</span>
+    </p>
   </section>
 
 </main>
 
 <!-- Footer -->
 <footer>
-    <div class="footer-links">
-    <a href="#directory">Directory</a>
-    <a href="#calculator">Fair Rate Card</a>
-    <a href="#medical-guide">Medical Transit Guide</a>
-    <a href="#pilgrimage-guide">Kamarpukur Guide</a>
-    <a href="#transport-guide">Train & Bus Guide</a>
-    <a href="#about-manch">About Us</a>
-    <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>
-    <a href="https://forms.gle/kwRh7jYA8vRUfQxh6" target="_blank" rel="noopener noreferrer">Contact Admin (Google Form)</a>
+  <div class="footer-links">
+    <a href="#sbstc-timetable">
+      <span class="lang-en">SBSTC Timetable</span>
+      <span class="lang-bn">এসবিএসটিসি সময়সূচী</span>
+    </a>
+    <a href="#directory">
+      <span class="lang-en">Directory</span>
+      <span class="lang-bn">ডিরেক্টরি</span>
+    </a>
+    <a href="#calculator">
+      <span class="lang-en">Fair Rate Card</span>
+      <span class="lang-bn">ন্যায্য ভাড়ার চার্ট</span>
+    </a>
+    <a href="#medical-guide">
+      <span class="lang-en">Medical Transit Guide</span>
+      <span class="lang-bn">চিকিৎসা পরিবহন</span>
+    </a>
+    <a href="#pilgrimage-guide">
+      <span class="lang-en">Kamarpukur Guide</span>
+      <span class="lang-bn">কামারপুকুর গাইড</span>
+    </a>
+    <a href="#transport-guide">
+      <span class="lang-en">Train & Bus Guide</span>
+      <span class="lang-bn">ট্রেন ও বাস গাইড</span>
+    </a>
+    <a href="#about-manch">
+      <span class="lang-en">About Us</span>
+      <span class="lang-bn">আমাদের সম্পর্কে</span>
+    </a>
+    <a href="javascript:void(0)" onclick="openPrivacyModal()">
+      <span class="lang-en">Privacy Policy</span>
+      <span class="lang-bn">গোপনীয়তা নীতি</span>
+    </a>
+    <a href="https://forms.gle/kwRh7jYA8vRUfQxh6" target="_blank" rel="noopener noreferrer">
+      <span class="lang-en">Contact Admin (Google Form)</span>
+      <span class="lang-bn">যোগাযোগ ফর্ম (Google Form)</span>
+    </a>
   </div>
   <p>© 2026 Arambagh Yatri Sahayata Manch. A 100% Free Public Information Platform for Arambagh Sub-division, Hooghly.</p>
 
@@ -930,12 +1398,27 @@
 <div class="modal-overlay" id="privacyModal">
   <div class="modal-box" style="max-height:80vh; overflow-y:auto;">
     <button class="modal-close" onclick="closePrivacyModal()">✕</button>
-    <h3 style="color:#0f766e; margin-bottom:0.75rem;">Privacy Policy & Disclaimer</h3>
+    <h3 style="color:#0f766e; margin-bottom:0.75rem;">
+      <span class="lang-en">Privacy Policy & Disclaimer</span>
+      <span class="lang-bn">গোপনীয়তা নীতি ও শর্তাবলী</span>
+    </h3>
     <div style="font-size:0.82rem; color:#475569; line-height:1.6;">
-      <p style="margin-bottom:0.5rem;"><strong>1. Information Collection:</strong> Arambagh Yatri Sahayata is an open public directory. We do not collect or store personal financial information. Any calls or inquiries initiated via the platform are connected directly to independent local operators in Arambagh.</p>
-      <p style="margin-bottom:0.5rem;"><strong>2. Google AdSense & Third-Party Cookies:</strong> Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings.</p>
-      <p style="margin-bottom:0.5rem;"><strong>3. Fair Pricing Disclaimer:</strong> The fare estimates provided are benchmark market guidelines calculated from fuel and highway toll averages to prevent passenger exploitation. Final fares are mutually agreed directly between travelers and drivers.</p>
-      <p><strong>4. Contact:</strong> For inquiries, directory additions, or removal requests, reach out via the contact button on this site.</p>
+      <p style="margin-bottom:0.5rem;">
+        <span class="lang-en"><strong>1. Information Collection:</strong> Arambagh Yatri Sahayata is an open public directory. We do not collect or store personal financial information. Any calls or inquiries initiated via the platform are connected directly to independent local operators in Arambagh.</span>
+        <span class="lang-bn"><strong>১. তথ্য সংগ্রহ:</strong> আরামবাগ যাত্রী সহায়তা একটি উন্মুক্ত পাবলিক প্ল্যাটফর্ম। আমরা কোনো আর্থিক তথ্য সংগ্রহ বা সংরক্ষণ করি না। যাত্রীরা সরাসরি সংশ্লিষ্ট স্বাধীন অপারেটরদের সাথে যোগাযোগ করেন।</span>
+      </p>
+      <p style="margin-bottom:0.5rem;">
+        <span class="lang-en"><strong>2. Google AdSense & Third-Party Cookies:</strong> Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to our sites and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings.</span>
+        <span class="lang-bn"><strong>২. গুগল অ্যাডসেন্স ও কুকিজ:</strong> গুগল সহ অন্যান্য তৃতীয় পক্ষ এই ওয়েবসাইটে বিজ্ঞাপন প্রদর্শনের জন্য কুকিজ ব্যবহার করতে পারে। ব্যবহারকারী চাইলে গুগল অ্যাডস সেটিংসে গিয়ে ব্যক্তিগতকৃত বিজ্ঞাপন বন্ধ করতে পারেন।</span>
+      </p>
+      <p style="margin-bottom:0.5rem;">
+        <span class="lang-en"><strong>3. Fair Pricing Disclaimer:</strong> The fare estimates provided are benchmark market guidelines calculated from fuel and highway toll averages to prevent passenger exploitation. Final fares are mutually agreed directly between travelers and drivers.</span>
+        <span class="lang-bn"><strong>৩. ভাড়ার ডিসক্লেমার:</strong> প্রদত্ত ভাড়ার হিসাবটি সাধারণ বাজার নির্দেশিকা মাত্র। যাত্রার চূড়ান্ত ভাড়া যাত্রী ও চালকের পারস্পরিক সম্মতিতে নির্ধারিত হবে।</span>
+      </p>
+      <p>
+        <span class="lang-en"><strong>4. Contact:</strong> For inquiries, directory additions, or removal requests, reach out via our Google Form.</span>
+        <span class="lang-bn"><strong>৪. যোগাযোগ:</strong> তথ্য সংশোধন বা পরিমার্জনের জন্য আমাদের গুগল ফর্মের মাধ্যমে যোগাযোগ করুন।</span>
+      </p>
     </div>
   </div>
 </div>
@@ -947,23 +1430,51 @@
 
   function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'bn' : 'en';
-    if(currentLang === 'bn') {
-      document.getElementById('brand-title').innerText = "আরামবাগ যাত্রী সহায়তা";
-      document.getElementById('brand-sub').innerText = "বিনামূল্যে ভ্রমণ ও গাড়ি ডিরেক্টরি | আরামবাগ মহকুমা";
-      document.getElementById('lang-btn').innerText = "View in English";
-      document.getElementById('hero-headline').innerText = "আরামবাগের সমস্ত ট্রাভেল এজেন্সি ও গাড়ি সেবা এক প্ল্যাটফর্মে";
-      document.getElementById('hero-desc').innerText = "সাধারণ যাত্রী ও জরুরি রোগীদের জন্য একটি সম্পূর্ণ উন্মুক্ত ও ফ্রি ডিরেক্টরি। কোনো মধ্যস্বত্বভোগী বা দালালি ছাড়া সরাসরি এজেন্টের সাথে কথা বলুন।";
-      document.getElementById('sec-title').innerText = "আরামবাগের ট্রাভেল ও গাড়ি সেবা প্রদানকারী";
-      document.getElementById('sec-sub').innerText = "সরাসরি ফোন নম্বর সহ উন্মুক্ত তালিকা। কোনো এজেন্সির থেকে কোনো চার্জ নেওয়া হয় না।";
-    } else {
-      document.getElementById('brand-title').innerText = "Arambagh Yatri Sahayata";
-      document.getElementById('brand-sub').innerText = "Free Community Travel & Cab Directory | Arambagh Sub-division";
-      document.getElementById('lang-btn').innerText = "বাংলায় দেখুন";
-      document.getElementById('hero-headline').innerText = "All Arambagh Travel Agencies & Cabs on One Free Platform";
-      document.getElementById('hero-desc').innerText = "An open directory for passengers and families in need. Find direct phone numbers for local car rentals, emergency Kolkata hospital runs, and pilgrimage tours without middlemen.";
-      document.getElementById('sec-title').innerText = "Local Tour & Travel Agencies in Arambagh";
-      document.getElementById('sec-sub').innerText = "Free public listings with direct telephone numbers. All local operators listed at no charge.";
+    const isBn = currentLang === 'bn';
+    document.body.classList.toggle('lang-bn-active', isBn);
+    document.getElementById('lang-btn').innerText = isBn ? "View in English" : "বাংলায় দেখুন";
+    
+    // Update input placeholders
+    const searchInput = document.getElementById('agencySearch');
+    if (searchInput) {
+      searchInput.placeholder = isBn ? "এজেন্সির নাম বা অবস্থান দিয়ে খুঁজুন..." : "Search by agency name or location...";
     }
+    
+    // Update agency category filter options
+    const serviceFilter = document.getElementById('serviceFilter');
+    if (serviceFilter) {
+      serviceFilter.options[0].text = isBn ? "সমস্ত পরিষেবা বিভাগ" : "All Service Categories";
+      serviceFilter.options[1].text = isBn ? "দূরপাল্লার ও স্থানীয় গাড়ি" : "Outstation & Local Cabs";
+      serviceFilter.options[2].text = isBn ? "জরুরি রোগী ও চিকিৎসা পরিবহন" : "Medical & Patient Transit";
+      serviceFilter.options[3].text = isBn ? "কামারপুকুর-জয়রামবাটী তীর্থ ভ্রমণ" : "Kamarpukur-Jayrambati Tours";
+    }
+
+    // Update calculator options
+    const originSel = document.getElementById('originSel');
+    if (originSel) {
+      originSel.options[0].text = isBn ? "আরামবাগ সেন্ট্রাল বাস স্ট্যান্ড" : "Arambagh Central Bus Stand";
+      originSel.options[1].text = isBn ? "হসপিটাল মোড় / মহকুমা হাসপাতাল" : "Hospital More / Subdivisional Hospital";
+      originSel.options[2].text = isBn ? "কামারপুকুর (~১৪ কিমি)" : "Kamarpukur (~14 km)";
+    }
+
+    const destSel = document.getElementById('destSel');
+    if (destSel) {
+      destSel.options[0].text = isBn ? "কলকাতা মেডিকেল হাব (SSKM / মেডিকেল কলেজ / NRS) (~৮২ কিমি)" : "Kolkata Medical Hub (SSKM / Medical College / NRS) (~82 km)";
+      destSel.options[1].text = isBn ? "হাওড়া স্টেশন / এয়ারপোর্ট (~৭৮ কিমি)" : "Howrah Rly Station / Airport (~78 km)";
+      destSel.options[2].text = isBn ? "তারকেশ্বর স্টেশন (~২৮ কিমি)" : "Tarakeswar Station (~28 km)";
+      destSel.options[3].text = isBn ? "বর্ধমান মেডিকেল কলেজ (~৪৫ কিমি)" : "Bardhaman Medical College (~45 km)";
+      destSel.options[4].text = isBn ? "কামারপুকুর–জয়রামবাটী ডে ট্যুর (~৫০ কিমি)" : "Kamarpukur–Jayrambati Day Tour (~50 km)";
+      destSel.options[5].text = isBn ? "দিঘা সমুদ্র সৈকত (~১৭৫ কিমি)" : "Digha Sea Beach (~175 km)";
+    }
+
+    const vehSel = document.getElementById('vehSel');
+    if (vehSel) {
+      vehSel.options[0].text = isBn ? "হ্যাচব্যাক (Alto / WagonR - ৪ সিটার)" : "Hatchback (Alto / WagonR - 4 Seater)";
+      vehSel.options[1].text = isBn ? "সেডান (Dzire / Etios - AC ৪ সিটার)" : "Sedan (Dzire / Etios - AC 4 Seater)";
+      vehSel.options[2].text = isBn ? "এসইউভি (Bolero / Ertiga - ৭ সিটার)" : "SUV (Bolero / Ertiga - 7 Seater)";
+    }
+
+    calcFare();
   }
 
   function calcFare() {
@@ -980,15 +1491,36 @@
     if (veh === 'hatchback') base = Math.round(base * 0.9);
     else if (veh === 'suv') base = Math.round(base * 1.35);
 
-    document.getElementById('fareDisplay').innerText = "₹ " + base.toLocaleString('en-IN');
+    const isBn = currentLang === 'bn';
+    const numStr = base.toLocaleString('en-IN');
+    if (isBn) {
+      const bnDigits = {'0':'০','1':'১','2':'২','3':'৩','4':'৪','5':'৫','6':'৬','7':'৭','8':'৮','9':'৯',',':','};
+      const bnFormatted = numStr.split('').map(d => bnDigits[d] || d).join('');
+      document.getElementById('fareDisplay').innerText = "₹ " + bnFormatted;
+    } else {
+      document.getElementById('fareDisplay').innerText = "₹ " + numStr;
+    }
   }
 
   function filterAgencies() {
     const q = document.getElementById('agencySearch').value.toLowerCase();
+    const service = document.getElementById('serviceFilter').value;
     const cards = document.querySelectorAll('.agency-card');
+    
     cards.forEach(card => {
       const text = card.innerText.toLowerCase();
-      if(text.includes(q)) {
+      const matchesSearch = text.includes(q);
+      
+      let matchesService = true;
+      if (service === 'medical') {
+        matchesService = text.includes('hospital') || text.includes('ambulance') || text.includes('জরুরি') || text.includes('চিকিৎসা');
+      } else if (service === 'pilgrim') {
+        matchesService = text.includes('kamarpukur') || text.includes('jayrambati') || text.includes('কামারপুকুর') || text.includes('জয়রামবাটী');
+      } else if (service === 'cab') {
+        matchesService = text.includes('outstation') || text.includes('dzire') || text.includes('bolero') || text.includes('গাড়ি');
+      }
+
+      if (matchesSearch && matchesService) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
@@ -996,7 +1528,22 @@
     });
   }
 
-  
+  function filterSbstc(cat, btn) {
+    const buttons = document.querySelectorAll('.sbstc-btn-filter');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const rows = document.querySelectorAll('#sbstcTable tbody tr');
+    rows.forEach(row => {
+      const rowCat = row.getAttribute('data-cat');
+      if (cat === 'all' || rowCat === cat) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
   function openPrivacyModal() { document.getElementById('privacyModal').classList.add('active'); }
   function closePrivacyModal() { document.getElementById('privacyModal').classList.remove('active'); }
 
