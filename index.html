@@ -697,6 +697,10 @@
         <span class="lang-en">Medinipur / Ghatal</span>
         <span class="lang-bn">মেদিনীপুর / ঘাটাল</span>
       </button>
+      <button class="sbstc-btn-filter" onclick="filterSbstc('tarapith', this)">
+        <span class="lang-en">Tarapith Temple</span>
+        <span class="lang-bn">তারাপীঠ মন্দির</span>
+      </button>
     </div>
 
     <!-- SBSTC Timetable Table -->
@@ -843,6 +847,33 @@
             <td><span class="highlight-badge">Express Route</span></td>
             <td><strong>₹85 – ₹105</strong></td>
             <td>10:00 AM, 01:30 PM, 05:00 PM (Medinipur Central Bus Stand)</td>
+          </tr>
+
+          <!-- Tarapith Route -->
+          <tr data-cat="tarapith">
+            <td>
+              <strong>
+                <span class="lang-en">Tarapith Temple (Maa Tara)</span>
+                <span class="lang-bn">তারাপীঠ মন্দির (মা তারা)</span>
+              </strong><br>
+              <small style="color:#0f766e;">
+                <span class="lang-en">Direct Pilgrim Express</span>
+                <span class="lang-bn">সরাসরি পুণ্যার্থী এক্সপ্রেস</span>
+              </small>
+            </td>
+            <td>
+              <span class="bus-time-badge">07:25 AM</span>
+            </td>
+            <td>
+              <span class="lang-en">Uchalan → Burdwan (Nababhat) → Gushkara / Futisanko → Bolpur → Sainthia → Rampurhat → Tarapith</span>
+              <span class="lang-bn">উচালন → বর্ধমান (নবাবহাট) → গুসকরা / ফুটি সাঁকো → বোলপুর → সাঁইথিয়া → রামপুরহাট → তারাপীঠ</span>
+            </td>
+            <td><span class="highlight-badge">SBSTC Pilgrim Express</span></td>
+            <td><strong>₹145 – ₹175</strong></td>
+            <td>
+              <span class="lang-en">01:30 PM (Tarapith Bus Stand)</span>
+              <span class="lang-bn">দুপুর ০১:৩০ (তারাপীঠ বাস স্ট্যান্ড)</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1060,6 +1091,7 @@
           <option value="bardhaman">Bardhaman Medical College (~45 km)</option>
           <option value="kamarpukur_tour">Kamarpukur–Jayrambati Day Tour (~50 km)</option>
           <option value="digha">Digha Sea Beach (~175 km)</option>
+          <option value="tarapith">Tarapith Temple (~137 km)</option>
         </select>
       </div>
       <div class="form-group">
@@ -1465,6 +1497,7 @@
       destSel.options[3].text = isBn ? "বর্ধমান মেডিকেল কলেজ (~৪৫ কিমি)" : "Bardhaman Medical College (~45 km)";
       destSel.options[4].text = isBn ? "কামারপুকুর–জয়রামবাটী ডে ট্যুর (~৫০ কিমি)" : "Kamarpukur–Jayrambati Day Tour (~50 km)";
       destSel.options[5].text = isBn ? "দিঘা সমুদ্র সৈকত (~১৭৫ কিমি)" : "Digha Sea Beach (~175 km)";
+      if (destSel.options[6]) destSel.options[6].text = isBn ? "তারাপীঠ মন্দির (~১৩৭ কিমি)" : "Tarapith Temple (~137 km)";
     }
 
     const vehSel = document.getElementById('vehSel');
@@ -1487,6 +1520,7 @@
     else if (dest === 'bardhaman') base = 1600;
     else if (dest === 'kamarpukur_tour') base = 1650;
     else if (dest === 'digha') base = 4800;
+    else if (dest === 'tarapith') base = 3900;
 
     if (veh === 'hatchback') base = Math.round(base * 0.9);
     else if (veh === 'suv') base = Math.round(base * 1.35);
